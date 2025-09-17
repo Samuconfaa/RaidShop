@@ -11,10 +11,11 @@ import org.jetbrains.annotations.NotNull;
 public class ShopCommand implements CommandExecutor {
 
     private final RaidShop plugin;
-    private Shop shop;
+    private final Shop shop;
 
-    public ShopCommand(RaidShop plugin) {
+    public ShopCommand(RaidShop plugin, Shop shop) {
         this.plugin = plugin;
+        this.shop = shop;
     }
 
     @Override

@@ -9,10 +9,14 @@ import static org.bukkit.Bukkit.getServer;
 
 public class EconomyManager {
     private final RaidShop plugin;
-    private Economy econ = null;
+    private static Economy econ = null;
 
     public EconomyManager(RaidShop plugin) {
         this.plugin = plugin;
+    }
+
+    public static void setEconomy(Economy economy) {
+        econ = economy;
     }
 
     public void removeMoney(Player player, double amount) {

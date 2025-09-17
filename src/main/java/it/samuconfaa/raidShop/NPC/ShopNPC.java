@@ -1,6 +1,7 @@
 package it.samuconfaa.raidShop.NPC;
 
 import it.samuconfaa.raidShop.RaidShop;
+import it.samuconfaa.raidShop.shopgui.Shop;
 import net.citizensnpcs.api.CitizensAPI;
 import net.citizensnpcs.api.event.NPCRightClickEvent;
 import net.citizensnpcs.api.npc.NPC;
@@ -15,9 +16,11 @@ import java.util.UUID;
 
 public class ShopNPC implements Listener {
     private final RaidShop plugin;
+    public final Shop shop;
 
-    public ShopNPC(RaidShop plugin) {
+    public ShopNPC(RaidShop plugin, Shop shop) {
         this.plugin = plugin;
+        this.shop = shop;
     }
 
     public void createNPC(Player p, String name){

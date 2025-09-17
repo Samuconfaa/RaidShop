@@ -16,13 +16,15 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 public class Shop implements Listener {
     private final RaidShop plugin;
-    private EconomyManager econManager;
-    private Libri libri;
-    private Generale generale;
-    private Pozioni pozioni;
+    private final Libri libri;
+    private final Generale generale;
+    private final Pozioni pozioni;
 
-    public Shop(RaidShop plugin) {
+    public Shop(RaidShop plugin, Generale generale, Pozioni pozioni, Libri libri) {
         this.plugin = plugin;
+        this.generale = generale;
+        this.pozioni = pozioni;
+        this.libri = libri;
     }
 
     public void openShop(Player p) {

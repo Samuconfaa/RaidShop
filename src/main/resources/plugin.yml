@@ -2,4 +2,25 @@ name: RaidShop
 version: '1.0'
 main: it.samuconfaa.raidShop.RaidShop
 api-version: '1.21'
+authors: [ samuconfaa ]
+description: A complete shop system for Minecraft servers.
 
+commands:
+  shopraid:
+    description: Opens the shop GUI.
+    usage: /<command>
+    permission: raidshop.openshop
+    permission-message: ${messages.no-permission}
+  setnpcshop:
+    description: Creates a shop NPC.
+    usage: /<command> [skin_name]
+    permission: raidshop.setnpc
+    permission-message: ${messages.no-permission}
+
+permissions:
+  raidshop.openshop:
+    description: Allows a player to open the shop with the command.
+    default: true
+  raidshop.setnpc:
+    description: Allows a player to create a shop NPC.
+    default: op

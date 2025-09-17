@@ -20,11 +20,16 @@ import java.util.Collections;
 
 public class Libri implements Listener {
     private final RaidShop plugin;
-    private EconomyManager econManager;
+    private final EconomyManager econManager;
     private Shop shop;
 
-    public Libri(RaidShop plugin) {
+    public Libri(RaidShop plugin, EconomyManager econManager) {
         this.plugin = plugin;
+        this.econManager = econManager;
+    }
+
+    public void setShop(Shop shop) {
+        this.shop = shop;
     }
 
     public void openLibri(Player p) {
@@ -53,7 +58,7 @@ public class Libri implements Listener {
 
         ItemStack aspettoDiFuoco = new ItemStack(Material.ENCHANTED_BOOK);
         ItemMeta metaAspettoDiFuoco = aspettoDiFuoco.getItemMeta();
-        metaAspettoDiFuoco.setDisplayName("Libro di Aspetto di Fuoco III");
+        metaAspettoDiFuoco.setDisplayName("Libro di Aspetto di Fuoco &cII");
         metaAspettoDiFuoco.setLore(Collections.singletonList("Prezzo: €4500"));
         aspettoDiFuoco.setItemMeta(metaAspettoDiFuoco);
         Libri.setItem(13, aspettoDiFuoco);

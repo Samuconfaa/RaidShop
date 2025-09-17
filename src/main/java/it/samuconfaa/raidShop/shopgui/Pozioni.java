@@ -17,12 +17,17 @@ import java.util.Collections;
 
 public class Pozioni implements Listener {
     private final RaidShop plugin;
-    private EconomyManager econManager;
+    private final EconomyManager econManager;
     private Shop shop;
 
 
-    public Pozioni(RaidShop plugin) {
+    public Pozioni(RaidShop plugin, EconomyManager econManager) {
         this.plugin = plugin;
+        this.econManager = econManager;
+    }
+
+    public void setShop(Shop shop) {
+        this.shop = shop;
     }
 
     public void openPozioni(Player p) {

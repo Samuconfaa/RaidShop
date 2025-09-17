@@ -11,10 +11,11 @@ import org.bukkit.entity.Player;
 public class NPCCommand implements CommandExecutor {
 
     private final RaidShop plugin;
-    private ShopNPC shopNPC;
+    private final ShopNPC shopNPC;
 
-    public NPCCommand(RaidShop plugin) {
+    public NPCCommand(RaidShop plugin, ShopNPC shopNPC) {
         this.plugin = plugin;
+        this.shopNPC = shopNPC;
     }
 
     @Override

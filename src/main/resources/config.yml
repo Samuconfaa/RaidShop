@@ -1,14 +1,14 @@
 GUI:
-  generale: "Generale"
-  libri: "Enchant"
-  pozioni: "Pozioni"
-  shop: "Shop"
+  generale: "&l&aNegozio Generale"
+  libri: "&l&bNegozio Libri"
+  pozioni: "&l&dNegozio Pozioni"
+  shop: "&l&eNegozio Principale"
 
 messages:
-  no-permission: "Non hai il permesso per fare questo"
-  usage-shop: "Comando errato. Utilizzo: /shopraid"
-  usage-npc: "Comando errato. Utilizzo: /setnpcshop <nick_skin>"
+  no-permission: "&cNon hai il permesso per fare questo"
+  usage-shop: "&cComando errato. &eUtilizzo: &f/shopraid"
+  usage-npc: "&cComando errato. &eUtilizzo: &f/setnpcshop &b<nick_skin>"
 
 
 NPC:
-  shop-name: "Shop"
+  shop-name: "&l&6Negozio"
