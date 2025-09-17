@@ -28,7 +28,7 @@ public class Shop implements Listener {
     }
 
     public void openShop(Player p) {
-        Inventory shop = Bukkit.createInventory(p, 27, plugin.getConfig().getString("shopName.shop"));
+        Inventory shop = Bukkit.createInventory(p, 27, plugin.getConfigManager().getShopName());
 
         ItemStack generale = new ItemStack(Material.DIAMOND_SWORD);
         ItemMeta metaGenerale = generale.getItemMeta();
@@ -55,7 +55,7 @@ public class Shop implements Listener {
     public void onInventoryClick(InventoryClickEvent e) {
         Inventory inv = e.getClickedInventory();
 
-        if (inv != null && e.getView().getTitle().equals(plugin.getConfig().getString("shopName.shop"))) {
+        if (inv != null && e.getView().getTitle().equals(plugin.getConfigManager().getShopName())) {
             e.setCancelled(true);
 
             Player p = (Player) e.getWhoClicked();

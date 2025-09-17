@@ -33,7 +33,7 @@ public class Libri implements Listener {
     }
 
     public void openLibri(Player p) {
-        Inventory Libri = Bukkit.createInventory(p, 27, plugin.getConfig().getString("shopName.libri"));
+        Inventory Libri = Bukkit.createInventory(p, 27, plugin.getConfigManager().getEnchantName());
 
         ItemStack affilatezza = new ItemStack(Material.ENCHANTED_BOOK);
         ItemMeta metaAffilatezza = affilatezza.getItemMeta();
@@ -82,7 +82,7 @@ public class Libri implements Listener {
     @EventHandler
     public void onInvClick(InventoryClickEvent e) {
         Inventory inv = e.getInventory();
-        if (inv != null && e.getView().getTitle().equals(plugin.getConfig().getString("shopName.libri"))) {
+        if (inv != null && e.getView().getTitle().equals(plugin.getConfigManager().getEnchantName())) {
             e.setCancelled(true);
 
             Player p = (Player) e.getWhoClicked();

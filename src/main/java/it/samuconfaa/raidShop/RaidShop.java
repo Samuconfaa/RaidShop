@@ -43,6 +43,10 @@ public final class RaidShop extends JavaPlugin {
         this.shop = new Shop(this, generale, pozioni, libri);
         this.shopNPC = new ShopNPC(this, shop);
 
+        this.generale.setShop(this.shop);
+        this.pozioni.setShop(this.shop);
+        this.libri.setShop(this.shop);
+
         getCommand("shopraid").setExecutor(new ShopCommand(this, shop)); // Passa 'shop'
         getCommand("setnpcshop").setExecutor(new NPCCommand(this, shopNPC)); // Passa 'shopNPC'
 

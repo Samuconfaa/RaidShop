@@ -32,7 +32,7 @@ public class Pozioni implements Listener {
 
     public void openPozioni(Player p) {
         // Imposta il titolo dell'inventario dal config
-        String inventoryTitle = plugin.getConfig().getString("shopName.pot", "Negozio di Pozioni");
+        String inventoryTitle = plugin.getConfigManager().getPozioniName();
         Inventory pozioni = Bukkit.createInventory(p, 27, inventoryTitle);
 
         // Crea le pozioni con i relativi metadati
@@ -65,7 +65,7 @@ public class Pozioni implements Listener {
     @EventHandler
     public void onInvClick(InventoryClickEvent e) {
         Inventory inv = e.getInventory();
-        if (inv != null && e.getView().getTitle().equals(plugin.getConfig().getString("shopName.pot", "Negozio di Pozioni"))) {
+        if (inv != null && e.getView().getTitle().equals(plugin.getConfigManager().getPozioniName())) {
             e.setCancelled(true);
 
             Player p = (Player) e.getWhoClicked();

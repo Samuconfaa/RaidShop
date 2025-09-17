@@ -31,7 +31,7 @@ public class Generale implements Listener {
     }
 
     public void openGenerale(Player p) {
-        Inventory Generale = Bukkit.createInventory(p, 27, plugin.getConfig().getString("shopName.generale"));
+        Inventory Generale = Bukkit.createInventory(p, 27, plugin.getConfigManager().getGeneraleName());
 
         ItemStack Spada = new ItemStack(Material.DIAMOND_SWORD);
         ItemMeta metag = Spada.getItemMeta();
@@ -73,7 +73,7 @@ public class Generale implements Listener {
     @EventHandler
     public void onInvClick(InventoryClickEvent e) {
         Inventory inv = e.getInventory();
-        if (inv != null && e.getView().getTitle().equals(plugin.getConfig().getString("shopName.generale"))) {
+        if (inv != null && e.getView().getTitle().equals(plugin.getConfigManager().getGeneraleName())) {
             e.setCancelled(true);
 
             Player p = (Player) e.getWhoClicked();

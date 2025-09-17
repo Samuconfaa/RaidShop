@@ -11,6 +11,7 @@ import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import net.citizensnpcs.trait.SkinTrait;
 
 import java.util.UUID;
 
@@ -35,32 +36,14 @@ public class ShopNPC implements Listener {
         setRandomSkin(npc);
     }
 
-    @EventHandler
-    public void onNPCRightClick(NPCRightClickEvent event) {
-        NPC npc = event.getNPC();
-        Player player = event.getClicker();
-        if (npc.getName().equals(plugin.getConfigManager().getNpcName())){
-            String command = "shopraid";
-            player.performCommand(command);
-        }
-    }
-
     public void setSkin(NPC npc, String nick) {
         if (npc.isSpawned()) {
-            try {
-                // Riflessione per accedere a metodi e classi private
-                Class<?> playerNPCTraitClass = Class.forName("net.citizensnpcs.api.npc.trait.PlayerSkinTrait");
-                Object playerNPCTrait = npc.getTrait(playerNPCTraitClass.asSubclass(net.citizensnpcs.api.trait.Trait.class));
-
-                // Invoca il metodo setSkinName sul trait
-                playerNPCTraitClass.getMethod("setSkinName", String.class).invoke(playerNPCTrait, nick);
-
-                // Imposta il nome dell'NPC separatamente
-                npc.setName(plugin.getConfigManager().getNpcName());
-
-            } catch (Exception e) {
-                e.printStackTrace();
+            SkinTrait skinTrait = npc.getTrait(SkinTrait.class);
+            if (skinTrait == null) {
+                skinTrait = new SkinTrait();
+                npc.addTrait(skinTrait);
             }
+            skinTrait.setSkinName(nick);
         }
     }
 
