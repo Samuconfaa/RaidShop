@@ -1,0 +1,14 @@
+GUI:
+  generale: "Generale"
+  libri: "Enchant"
+  pozioni: "Pozioni"
+  shop: "Shop"
+
+messages:
+  no-permission: "Non hai il permesso per fare questo"
+  usage-shop: "Comando errato. Utilizzo: /shopraid"
+  usage-npc: "Comando errato. Utilizzo: /setnpcshop <nick_skin>"
+
+
+NPC:
+  shop-name: "Shop"

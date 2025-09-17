@@ -1,0 +1,5 @@
+name: RaidShop
+version: '1.0'
+main: it.samuconfaa.raidShop.RaidShop
+api-version: '1.21'
+
