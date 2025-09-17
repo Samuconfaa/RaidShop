@@ -8,13 +8,13 @@ import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
-import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-import org.bukkit.potion.Potion;
-import org.bukkit.potion.PotionType;
+import org.bukkit.inventory.meta.PotionMeta;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -37,7 +37,7 @@ public class Pozioni implements Listener {
         Inventory pozioni = Bukkit.createInventory(p, 54, plugin.getConfigManager().getPozioniName());
 
         // Decorazioni - Vetri colorati per i bordi
-        ItemStack border = new ItemStack(Material.MAGENTA_STAINED_GLASS_PANE, 1, (short) 6); // Rosa
+        ItemStack border = new ItemStack(Material.MAGENTA_STAINED_GLASS_PANE, 1);
         ItemMeta borderMeta = border.getItemMeta();
         borderMeta.setDisplayName(" ");
         border.setItemMeta(borderMeta);
@@ -49,7 +49,7 @@ public class Pozioni implements Listener {
         }
 
         // Decorazioni laterali magenta
-        ItemStack magentaGlass = new ItemStack(Material.MAGENTA_STAINED_GLASS_PANE, 1, (short) 2); // Magenta
+        ItemStack magentaGlass = new ItemStack(Material.MAGENTA_STAINED_GLASS_PANE, 1);
         ItemMeta magentaMeta = magentaGlass.getItemMeta();
         magentaMeta.setDisplayName(" ");
         magentaGlass.setItemMeta(magentaMeta);
@@ -61,7 +61,7 @@ public class Pozioni implements Listener {
         // === POZIONI ===
 
         // Pozione di Forza
-        ItemStack pozioneForza = creaPozioneModerna(PotionType.STRENGTH, false, false,
+        ItemStack pozioneForza = creaPozione(PotionEffectType.STRENGTH, 3600, 0,
                 ChatColor.RED + "" + ChatColor.BOLD + "Pozione di Forza",
                 Arrays.asList(
                         ChatColor.GRAY + "Aumenta il danno inflitto",
@@ -73,7 +73,7 @@ public class Pozioni implements Listener {
         pozioni.setItem(10, pozioneForza);
 
         // Pozione di Velocità
-        ItemStack pozioneVelocita = creaPozioneModerna(PotionType.SWIFTNESS, false, false,
+        ItemStack pozioneVelocita = creaPozione(PotionEffectType.SPEED, 3600, 0,
                 ChatColor.BLUE + "" + ChatColor.BOLD + "Pozione di Velocità",
                 Arrays.asList(
                         ChatColor.GRAY + "Aumenta la velocità di",
@@ -85,7 +85,7 @@ public class Pozioni implements Listener {
         pozioni.setItem(11, pozioneVelocita);
 
         // Pozione di Salto in Alto
-        ItemStack pozioneSalto = creaPozioneModerna(PotionType.LEAPING, false, false,
+        ItemStack pozioneSalto = creaPozione(PotionEffectType.JUMP_BOOST, 3600, 0,
                 ChatColor.GREEN + "" + ChatColor.BOLD + "Pozione di Salto in Alto",
                 Arrays.asList(
                         ChatColor.GRAY + "Permette di saltare",
@@ -96,8 +96,8 @@ public class Pozioni implements Listener {
         );
         pozioni.setItem(12, pozioneSalto);
 
-        // Pozione di Resistenza (usando Turtle Master che da resistenza)
-        ItemStack pozioneResistenza = creaPozioneModerna(PotionType.TURTLE_MASTER, false, false,
+        // Pozione di Resistenza
+        ItemStack pozioneResistenza = creaPozione(PotionEffectType.RESISTANCE, 3600, 0,
                 ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "Pozione di Resistenza",
                 Arrays.asList(
                         ChatColor.GRAY + "Riduce tutti i danni",
@@ -109,7 +109,7 @@ public class Pozioni implements Listener {
         pozioni.setItem(13, pozioneResistenza);
 
         // Pozione di Cura Istantanea
-        ItemStack pozioneCura = creaPozioneModerna(PotionType.HEALING, false, false,
+        ItemStack pozioneCura = creaPozione(PotionEffectType.INSTANT_HEALTH, 1, 0,
                 ChatColor.LIGHT_PURPLE + "" + ChatColor.BOLD + "Pozione di Cura Istantanea",
                 Arrays.asList(
                         ChatColor.GRAY + "Ripristina istantaneamente",
@@ -142,25 +142,14 @@ public class Pozioni implements Listener {
         p.openInventory(pozioni);
     }
 
-    private ItemStack creaPozione(Material material, short data, String displayName, java.util.List<String> lore) {
-        ItemStack pozione = new ItemStack(material, 1, data);
-        ItemMeta meta = pozione.getItemMeta();
+    private ItemStack creaPozione(PotionEffectType effectType, int duration, int amplifier, String displayName, java.util.List<String> lore) {
+        ItemStack pozione = new ItemStack(Material.POTION);
+        PotionMeta meta = (PotionMeta) pozione.getItemMeta();
+        meta.addCustomEffect(new PotionEffect(effectType, duration, amplifier), true);
         meta.setDisplayName(displayName);
         meta.setLore(lore);
         pozione.setItemMeta(meta);
         return pozione;
-    }
-
-    private ItemStack creaPozioneModerna(PotionType type, boolean extended, boolean upgraded, String displayName, java.util.List<String> lore) {
-        Potion potion = new Potion(type);
-        if (extended) potion.extend();
-
-        ItemStack pozioneItem = potion.toItemStack(1);
-        ItemMeta meta = pozioneItem.getItemMeta();
-        meta.setDisplayName(displayName);
-        meta.setLore(lore);
-        pozioneItem.setItemMeta(meta);
-        return pozioneItem;
     }
 
     @EventHandler
@@ -175,8 +164,10 @@ public class Pozioni implements Listener {
             switch (slot) {
                 case 10: // Pozione di Forza
                     if (econManager.checkMoney(p) >= 1400) {
-                        Potion potion = new Potion(PotionType.STRENGTH);
-                        ItemStack pozioneForza = potion.toItemStack(1);
+                        ItemStack pozioneForza = new ItemStack(Material.POTION);
+                        PotionMeta meta = (PotionMeta) pozioneForza.getItemMeta();
+                        meta.addCustomEffect(new PotionEffect(PotionEffectType.STRENGTH, 3600, 0), true);
+                        pozioneForza.setItemMeta(meta);
                         p.getInventory().addItem(pozioneForza);
                         econManager.removeMoney(p, 1400);
                         p.sendMessage(ChatColor.GREEN + "Hai acquistato una Pozione di Forza per €1400!");
@@ -188,8 +179,10 @@ public class Pozioni implements Listener {
 
                 case 11: // Pozione di Velocità
                     if (econManager.checkMoney(p) >= 1200) {
-                        Potion potion = new Potion(PotionType.SWIFTNESS);
-                        ItemStack pozioneVelocita = potion.toItemStack(1);
+                        ItemStack pozioneVelocita = new ItemStack(Material.POTION);
+                        PotionMeta meta = (PotionMeta) pozioneVelocita.getItemMeta();
+                        meta.addCustomEffect(new PotionEffect(PotionEffectType.SPEED, 3600, 0), true);
+                        pozioneVelocita.setItemMeta(meta);
                         p.getInventory().addItem(pozioneVelocita);
                         econManager.removeMoney(p, 1200);
                         p.sendMessage(ChatColor.GREEN + "Hai acquistato una Pozione di Velocità per €1200!");
@@ -201,8 +194,10 @@ public class Pozioni implements Listener {
 
                 case 12: // Pozione di Salto in Alto
                     if (econManager.checkMoney(p) >= 1000) {
-                        Potion potion = new Potion(PotionType.LEAPING);
-                        ItemStack pozioneSalto = potion.toItemStack(1);
+                        ItemStack pozioneSalto = new ItemStack(Material.POTION);
+                        PotionMeta meta = (PotionMeta) pozioneSalto.getItemMeta();
+                        meta.addCustomEffect(new PotionEffect(PotionEffectType.JUMP_BOOST, 3600, 0), true);
+                        pozioneSalto.setItemMeta(meta);
                         p.getInventory().addItem(pozioneSalto);
                         econManager.removeMoney(p, 1000);
                         p.sendMessage(ChatColor.GREEN + "Hai acquistato una Pozione di Salto in Alto per €1000!");
@@ -214,8 +209,10 @@ public class Pozioni implements Listener {
 
                 case 13: // Pozione di Resistenza
                     if (econManager.checkMoney(p) >= 1800) {
-                        Potion potion = new Potion(PotionType.TURTLE_MASTER);
-                        ItemStack pozioneResistenza = potion.toItemStack(1);
+                        ItemStack pozioneResistenza = new ItemStack(Material.POTION);
+                        PotionMeta meta = (PotionMeta) pozioneResistenza.getItemMeta();
+                        meta.addCustomEffect(new PotionEffect(PotionEffectType.RESISTANCE, 3600, 0), true);
+                        pozioneResistenza.setItemMeta(meta);
                         p.getInventory().addItem(pozioneResistenza);
                         econManager.removeMoney(p, 1800);
                         p.sendMessage(ChatColor.GREEN + "Hai acquistato una Pozione di Resistenza per €1800!");
@@ -227,8 +224,10 @@ public class Pozioni implements Listener {
 
                 case 14: // Pozione di Cura Istantanea
                     if (econManager.checkMoney(p) >= 1600) {
-                        Potion potion = new Potion(PotionType.HEALING);
-                        ItemStack pozioneCura = potion.toItemStack(1);
+                        ItemStack pozioneCura = new ItemStack(Material.POTION);
+                        PotionMeta meta = (PotionMeta) pozioneCura.getItemMeta();
+                        meta.addCustomEffect(new PotionEffect(PotionEffectType.INSTANT_HEALTH, 1, 0), true);
+                        pozioneCura.setItemMeta(meta);
                         p.getInventory().addItem(pozioneCura);
                         econManager.removeMoney(p, 1600);
                         p.sendMessage(ChatColor.GREEN + "Hai acquistato una Pozione di Cura Istantanea per €1600!");
