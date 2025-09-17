@@ -18,20 +18,28 @@ public class ConfigManager {
         plugin.reloadConfig();
         config = plugin.getConfig();
     }
+
     /*
         NOMI DELLE GUI
     */
     public String getGeneraleName(){
         return ChatColor.translateAlternateColorCodes('&', config.getString("GUI.generale"));
     }
+
     public String getEnchantName(){
         return ChatColor.translateAlternateColorCodes('&', config.getString("GUI.libri"));
     }
+
     public String getPozioniName(){
         return ChatColor.translateAlternateColorCodes('&', config.getString("GUI.pozioni"));
     }
+
     public String getShopName(){
         return ChatColor.translateAlternateColorCodes('&', config.getString("GUI.shop"));
+    }
+
+    public String getArmorName(){
+        return ChatColor.translateAlternateColorCodes('&', config.getString("GUI.armor"));
     }
 
     /*
@@ -57,7 +65,4 @@ public class ConfigManager {
     public String getNpcName(){
         return ChatColor.translateAlternateColorCodes('&', config.getString("NPC.shop-name"));
     }
-
-
-
 }

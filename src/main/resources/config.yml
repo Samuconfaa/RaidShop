@@ -1,14 +1,14 @@
 GUI:
   generale: "&l&aNegozio Generale"
-  libri: "&l&bNegozio Libri"
+  libri: "&l&bNegozio Incantesimi"
   pozioni: "&l&dNegozio Pozioni"
+  armor: "&l&cNegozio Armature"
   shop: "&l&eNegozio Principale"
 
 messages:
   no-permission: "&cNon hai il permesso per fare questo"
   usage-shop: "&cComando errato. &eUtilizzo: &f/shopraid"
   usage-npc: "&cComando errato. &eUtilizzo: &f/setnpcshop &b<nick_skin>"
-
 
 NPC:
   shop-name: "&l&6Negozio"
