@@ -1,7 +1,9 @@
 package it.samuconfaa.raidShop;
 
+import it.samuconfaa.raidShop.commands.FixCommand;
 import it.samuconfaa.raidShop.commands.NPCCommand;
 import it.samuconfaa.raidShop.commands.ShopCommand;
+import it.samuconfaa.raidShop.fixGUI.FixGui;
 import it.samuconfaa.raidShop.managers.ConfigManager;
 import it.samuconfaa.raidShop.managers.EconomyManager;
 import it.samuconfaa.raidShop.NPC.ShopNPC;
@@ -14,7 +16,6 @@ import it.samuconfaa.raidShop.shopgui.Shop;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 import net.milkbowl.vault.economy.Economy;
-import org.bukkit.event.Listener;
 import org.bukkit.Bukkit;
 
 public final class RaidShop extends JavaPlugin {
@@ -28,6 +29,7 @@ public final class RaidShop extends JavaPlugin {
     private Armor armor;
     private IngredientiPozioni ingredientiPozioni;
     private ShopNPC shopNPC;
+    private FixGui fixGui;
 
     @Override
     public void onEnable() {
@@ -45,19 +47,24 @@ public final class RaidShop extends JavaPlugin {
         this.libri = new Libri(this, econManager);
         this.armor = new Armor(this, econManager);
         this.ingredientiPozioni = new IngredientiPozioni(this, econManager);
+        this.fixGui = new FixGui(this, econManager);
 
         this.shop = new Shop(this, generale, pozioni, libri, armor, ingredientiPozioni, econManager);
         this.shopNPC = new ShopNPC(this, shop);
 
+        // Imposta i riferimenti circolari
         this.generale.setShop(this.shop);
         this.pozioni.setShop(this.shop);
         this.libri.setShop(this.shop);
         this.armor.setShop(this.shop);
         this.ingredientiPozioni.setShop(this.shop);
 
+        // Registra i comandi
         getCommand("shopraid").setExecutor(new ShopCommand(this, shop));
         getCommand("setnpcshop").setExecutor(new NPCCommand(this, shopNPC));
+        getCommand("fix").setExecutor(new FixCommand(this, fixGui));
 
+        // Registra gli event listeners
         Bukkit.getPluginManager().registerEvents(generale, this);
         Bukkit.getPluginManager().registerEvents(pozioni, this);
         Bukkit.getPluginManager().registerEvents(libri, this);
@@ -65,9 +72,11 @@ public final class RaidShop extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(ingredientiPozioni, this);
         Bukkit.getPluginManager().registerEvents(shop, this);
         Bukkit.getPluginManager().registerEvents(shopNPC, this);
+        Bukkit.getPluginManager().registerEvents(fixGui, this);
 
         getLogger().info("RaidShop è stato abilitato con successo!");
         getLogger().info("Sezioni disponibili: Generale, Pozioni, Incantesimi, Armature, Ingredienti Pozioni");
+        getLogger().info("Fix GUI abilitata! Usa /fix per riparare gli oggetti");
     }
 
     @Override
@@ -90,5 +99,9 @@ public final class RaidShop extends JavaPlugin {
 
     public ConfigManager getConfigManager() {
         return configManager;
+    }
+
+    public FixGui getFixGui() {
+        return fixGui;
     }
 }

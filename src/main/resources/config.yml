@@ -1,3 +1,8 @@
+# ===============================================
+#           RAID SHOP - CONFIGURAZIONE
+# ===============================================
+
+# Nomi delle GUI del negozio
 GUI:
   generale: "&l&aNegozio Generale"
   libri: "&l&bNegozio Incantesimi"
@@ -6,10 +11,54 @@ GUI:
   ingredienti: "&l&3Ingredienti Pozioni"
   shop: "&l&eNegozio Principale"
 
+# Configurazione Fix GUI
+FixGUI:
+  # Nome della GUI di riparazione
+  name: "&l&6Riparazione Oggetti"
+
+  # Dimensione dell'inventario (deve essere multiplo di 9: 9, 18, 27, 36, 45, 54)
+  size: 27
+
+  # Prezzo per riparare tutti gli oggetti
+  price: 1000.0
+
+  # Configurazione incudine
+  anvil:
+    name: "&6&lRipara Tutto"
+    position: 13  # Posizione dell'incudine nella GUI (0-26 per size 27)
+    lore:
+      line1: "&7Clicca per riparare tutti"
+      line2: "&7i tuoi oggetti danneggiati"
+      line3: "&ePrezzo: &a€"  # Il prezzo viene aggiunto automaticamente
+
+  # Configurazione vetri decorativi
+  glass:
+    name: "&7"
+    color: 7  # Colore del vetro (0-15, vedi: https://minecraft.wiki/w/Dye#Data_values)
+
+  # Posizione del portafoglio
+  wallet:
+    position: 4  # Posizione del portafoglio nella GUI
+
+  # Impostazioni varie
+  prevent-anvil-pickup: true  # Previene il pickup di incudini nel mondo
+
+  # Configurazione suoni
+  sounds:
+    enabled: true  # Abilita/disabilita i suoni della FixGUI
+
+  # Messaggi della FixGUI
+  messages:
+    success: "&a✓ Tutti i tuoi oggetti sono stati riparati!"
+    no-money: "&c✗ Non hai abbastanza soldi per riparare gli oggetti!"
+
+# Messaggi generali
 messages:
   no-permission: "&cNon hai il permesso per fare questo"
   usage-shop: "&cComando errato. &eUtilizzo: &f/shopraid"
   usage-npc: "&cComando errato. &eUtilizzo: &f/setnpcshop &b<nick_skin>"
+  usage-fix: "&cComando errato. &eUtilizzo: &f/fix"
 
+# Configurazione NPC
 NPC:
   shop-name: "&l&6Negozio"
