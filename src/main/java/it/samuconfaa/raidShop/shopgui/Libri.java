@@ -58,7 +58,7 @@ public class Libri implements Listener {
         libri.setItem(27, purpleGlass);
         libri.setItem(35, purpleGlass);
 
-        // === LIBRI INCANTATI ===
+        // === LIBRI INCANTATI ORIGINALI ===
 
         // Protezione I
         ItemStack protezione = new ItemStack(Material.ENCHANTED_BOOK);
@@ -71,7 +71,7 @@ public class Libri implements Listener {
                 ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€1800"
         ));
         protezione.setItemMeta(metaProtezione);
-        libri.setItem(11, protezione);
+        libri.setItem(10, protezione);
 
         // Sharpness I
         ItemStack sharpness = new ItemStack(Material.ENCHANTED_BOOK);
@@ -84,7 +84,7 @@ public class Libri implements Listener {
                 ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€1500"
         ));
         sharpness.setItemMeta(metaSharpness);
-        libri.setItem(12, sharpness);
+        libri.setItem(11, sharpness);
 
         // Indistruttibilità I
         ItemStack unbreaking = new ItemStack(Material.ENCHANTED_BOOK);
@@ -97,7 +97,7 @@ public class Libri implements Listener {
                 ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€2200"
         ));
         unbreaking.setItemMeta(metaUnbreaking);
-        libri.setItem(13, unbreaking);
+        libri.setItem(12, unbreaking);
 
         // Potenza I
         ItemStack power = new ItemStack(Material.ENCHANTED_BOOK);
@@ -110,7 +110,74 @@ public class Libri implements Listener {
                 ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€1600"
         ));
         power.setItemMeta(metaPower);
-        libri.setItem(15, power);
+        libri.setItem(13, power);
+
+        // === NUOVI LIBRI INCANTATI ===
+
+        // Sweeping Edge I (NUOVO)
+        ItemStack sweepingEdge = new ItemStack(Material.ENCHANTED_BOOK);
+        ItemMeta metaSweepingEdge = sweepingEdge.getItemMeta();
+        metaSweepingEdge.setDisplayName(ChatColor.GOLD + "" + ChatColor.BOLD + "Libro di Lama Falciante I");
+        metaSweepingEdge.setLore(Arrays.asList(
+                ChatColor.GRAY + "Aumenta i danni degli",
+                ChatColor.GRAY + "attacchi ad area delle spade",
+                "",
+                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€1700"
+        ));
+        sweepingEdge.setItemMeta(metaSweepingEdge);
+        libri.setItem(14, sweepingEdge);
+
+        // Aqua Affinity I (NUOVO)
+        ItemStack aquaAffinity = new ItemStack(Material.ENCHANTED_BOOK);
+        ItemMeta metaAquaAffinity = aquaAffinity.getItemMeta();
+        metaAquaAffinity.setDisplayName(ChatColor.AQUA + "" + ChatColor.BOLD + "Libro di Affinità Acquatica I");
+        metaAquaAffinity.setLore(Arrays.asList(
+                ChatColor.GRAY + "Permette di scavare alla",
+                ChatColor.GRAY + "stessa velocità sott'acqua",
+                "",
+                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€1400"
+        ));
+        aquaAffinity.setItemMeta(metaAquaAffinity);
+        libri.setItem(15, aquaAffinity);
+
+        // Respiration I (NUOVO)
+        ItemStack respiration = new ItemStack(Material.ENCHANTED_BOOK);
+        ItemMeta metaRespiration = respiration.getItemMeta();
+        metaRespiration.setDisplayName(ChatColor.BLUE + "" + ChatColor.BOLD + "Libro di Respirazione I");
+        metaRespiration.setLore(Arrays.asList(
+                ChatColor.GRAY + "Prolunga il tempo di",
+                ChatColor.GRAY + "respirazione sott'acqua",
+                "",
+                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€1300"
+        ));
+        respiration.setItemMeta(metaRespiration);
+        libri.setItem(16, respiration);
+
+        // Punch I (NUOVO)
+        ItemStack punch = new ItemStack(Material.ENCHANTED_BOOK);
+        ItemMeta metaPunch = punch.getItemMeta();
+        metaPunch.setDisplayName(ChatColor.YELLOW + "" + ChatColor.BOLD + "Libro di Spinta I");
+        metaPunch.setLore(Arrays.asList(
+                ChatColor.GRAY + "Le frecce respingono",
+                ChatColor.GRAY + "i nemici colpiti",
+                "",
+                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€1500"
+        ));
+        punch.setItemMeta(metaPunch);
+        libri.setItem(19, punch);
+
+        // Flame I (NUOVO)
+        ItemStack flame = new ItemStack(Material.ENCHANTED_BOOK);
+        ItemMeta metaFlame = flame.getItemMeta();
+        metaFlame.setDisplayName(ChatColor.RED + "" + ChatColor.BOLD + "Libro di Fiamma I");
+        metaFlame.setLore(Arrays.asList(
+                ChatColor.GRAY + "Le frecce incendiano",
+                ChatColor.GRAY + "i nemici colpiti",
+                "",
+                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€1800"
+        ));
+        flame.setItemMeta(metaFlame);
+        libri.setItem(20, flame);
 
         // Bottone per tornare indietro
         ItemStack tornIndietro = new ItemStack(Material.ARROW);
@@ -144,7 +211,7 @@ public class Libri implements Listener {
             int slot = e.getRawSlot();
 
             switch (slot) {
-                case 11: // Protezione I
+                case 10: // Protezione I
                     if (econManager.checkMoney(p) >= 1800) {
                         ItemStack protezione = new ItemStack(Material.ENCHANTED_BOOK);
                         EnchantmentStorageMeta meta = (EnchantmentStorageMeta) protezione.getItemMeta();
@@ -159,7 +226,7 @@ public class Libri implements Listener {
                     }
                     break;
 
-                case 12: // Sharpness I
+                case 11: // Sharpness I
                     if (econManager.checkMoney(p) >= 1500) {
                         ItemStack sharpness = new ItemStack(Material.ENCHANTED_BOOK);
                         EnchantmentStorageMeta meta = (EnchantmentStorageMeta) sharpness.getItemMeta();
@@ -174,7 +241,7 @@ public class Libri implements Listener {
                     }
                     break;
 
-                case 13: // Indistruttibilità I
+                case 12: // Indistruttibilità I
                     if (econManager.checkMoney(p) >= 2200) {
                         ItemStack unbreaking = new ItemStack(Material.ENCHANTED_BOOK);
                         EnchantmentStorageMeta meta = (EnchantmentStorageMeta) unbreaking.getItemMeta();
@@ -189,7 +256,7 @@ public class Libri implements Listener {
                     }
                     break;
 
-                case 15: // Potenza I
+                case 13: // Potenza I
                     if (econManager.checkMoney(p) >= 1600) {
                         ItemStack power = new ItemStack(Material.ENCHANTED_BOOK);
                         EnchantmentStorageMeta meta = (EnchantmentStorageMeta) power.getItemMeta();
@@ -201,6 +268,81 @@ public class Libri implements Listener {
                         openLibri(p);
                     } else {
                         p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €1600");
+                    }
+                    break;
+
+                case 14: // Sweeping Edge I (NUOVO)
+                    if (econManager.checkMoney(p) >= 1700) {
+                        ItemStack sweepingEdge = new ItemStack(Material.ENCHANTED_BOOK);
+                        EnchantmentStorageMeta meta = (EnchantmentStorageMeta) sweepingEdge.getItemMeta();
+                        meta.addStoredEnchant(Enchantment.SWEEPING_EDGE, 1, true);
+                        sweepingEdge.setItemMeta(meta);
+                        p.getInventory().addItem(sweepingEdge);
+                        econManager.removeMoney(p, 1700);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato un Libro di Lama Falciante I per €1700!");
+                        openLibri(p);
+                    } else {
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €1700");
+                    }
+                    break;
+
+                case 15: // Aqua Affinity I (NUOVO)
+                    if (econManager.checkMoney(p) >= 1400) {
+                        ItemStack aquaAffinity = new ItemStack(Material.ENCHANTED_BOOK);
+                        EnchantmentStorageMeta meta = (EnchantmentStorageMeta) aquaAffinity.getItemMeta();
+                        meta.addStoredEnchant(Enchantment.AQUA_AFFINITY, 1, true);
+                        aquaAffinity.setItemMeta(meta);
+                        p.getInventory().addItem(aquaAffinity);
+                        econManager.removeMoney(p, 1400);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato un Libro di Affinità Acquatica I per €1400!");
+                        openLibri(p);
+                    } else {
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €1400");
+                    }
+                    break;
+
+                case 16: // Respiration I (NUOVO)
+                    if (econManager.checkMoney(p) >= 1300) {
+                        ItemStack respiration = new ItemStack(Material.ENCHANTED_BOOK);
+                        EnchantmentStorageMeta meta = (EnchantmentStorageMeta) respiration.getItemMeta();
+                        meta.addStoredEnchant(Enchantment.RESPIRATION, 1, true);
+                        respiration.setItemMeta(meta);
+                        p.getInventory().addItem(respiration);
+                        econManager.removeMoney(p, 1300);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato un Libro di Respirazione I per €1300!");
+                        openLibri(p);
+                    } else {
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €1300");
+                    }
+                    break;
+
+                case 19: // Punch I (NUOVO)
+                    if (econManager.checkMoney(p) >= 1500) {
+                        ItemStack punch = new ItemStack(Material.ENCHANTED_BOOK);
+                        EnchantmentStorageMeta meta = (EnchantmentStorageMeta) punch.getItemMeta();
+                        meta.addStoredEnchant(Enchantment.PUNCH, 1, true);
+                        punch.setItemMeta(meta);
+                        p.getInventory().addItem(punch);
+                        econManager.removeMoney(p, 1500);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato un Libro di Spinta I per €1500!");
+                        openLibri(p);
+                    } else {
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €1500");
+                    }
+                    break;
+
+                case 20: // Flame I (NUOVO)
+                    if (econManager.checkMoney(p) >= 1800) {
+                        ItemStack flame = new ItemStack(Material.ENCHANTED_BOOK);
+                        EnchantmentStorageMeta meta = (EnchantmentStorageMeta) flame.getItemMeta();
+                        meta.addStoredEnchant(Enchantment.FLAME, 1, true);
+                        flame.setItemMeta(meta);
+                        p.getInventory().addItem(flame);
+                        econManager.removeMoney(p, 1800);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato un Libro di Fiamma I per €1800!");
+                        openLibri(p);
+                    } else {
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €1800");
                     }
                     break;
 

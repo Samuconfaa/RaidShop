@@ -56,7 +56,7 @@ public class Generale implements Listener {
         generale.setItem(27, greenGlass);
         generale.setItem(35, greenGlass);
 
-        // === OGGETTI IN VENDITA ===
+        // === ARMI E STRUMENTI ===
 
         // Spada di Diamante
         ItemStack spadaDiamante = new ItemStack(Material.DIAMOND_SWORD);
@@ -84,30 +84,57 @@ public class Generale implements Listener {
         spadaFerro.setItemMeta(metaSpadaFerro);
         generale.setItem(11, spadaFerro);
 
-        // Mela d'Oro
-        ItemStack melaDOro = new ItemStack(Material.GOLDEN_APPLE);
-        ItemMeta metaMela = melaDOro.getItemMeta();
-        metaMela.setDisplayName(ChatColor.GOLD + "" + ChatColor.BOLD + "Mela d'Oro");
-        metaMela.setLore(Arrays.asList(
-                ChatColor.GRAY + "Una prelibatezza che rigenera",
-                ChatColor.GRAY + "la salute istantaneamente",
+        // Ascia di Diamante (NUOVO)
+        ItemStack asciaDiamante = new ItemStack(Material.DIAMOND_AXE);
+        ItemMeta metaAsciaDiamante = asciaDiamante.getItemMeta();
+        metaAsciaDiamante.setDisplayName(ChatColor.AQUA + "" + ChatColor.BOLD + "Ascia di Diamante");
+        metaAsciaDiamante.setLore(Arrays.asList(
+                ChatColor.GRAY + "Ascia potente per tagliare",
+                ChatColor.GRAY + "legno e combattere",
                 "",
-                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€1200"
+                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€1400"
         ));
-        melaDOro.setItemMeta(metaMela);
-        generale.setItem(12, melaDOro);
+        asciaDiamante.setItemMeta(metaAsciaDiamante);
+        generale.setItem(12, asciaDiamante);
 
-        // Frecce
-        ItemStack frecce = new ItemStack(Material.ARROW, 1);
-        ItemMeta metaFrecce = frecce.getItemMeta();
-        metaFrecce.setDisplayName(ChatColor.YELLOW + "" + ChatColor.BOLD + "Freccia");
-        metaFrecce.setLore(Arrays.asList(
-                ChatColor.GRAY + "Freccia affilata per il tuo arco",
+        // Ascia di Ferro (NUOVO)
+        ItemStack asciaFerro = new ItemStack(Material.IRON_AXE);
+        ItemMeta metaAsciaFerro = asciaFerro.getItemMeta();
+        metaAsciaFerro.setDisplayName(ChatColor.WHITE + "" + ChatColor.BOLD + "Ascia di Ferro");
+        metaAsciaFerro.setLore(Arrays.asList(
+                ChatColor.GRAY + "Ascia affidabile per",
+                ChatColor.GRAY + "ogni necessità",
                 "",
-                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€300"
+                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€700"
         ));
-        frecce.setItemMeta(metaFrecce);
-        generale.setItem(13, frecce);
+        asciaFerro.setItemMeta(metaAsciaFerro);
+        generale.setItem(13, asciaFerro);
+
+        // Balestra (NUOVO)
+        ItemStack balestra = new ItemStack(Material.CROSSBOW);
+        ItemMeta metaBalestra = balestra.getItemMeta();
+        metaBalestra.setDisplayName(ChatColor.DARK_RED + "" + ChatColor.BOLD + "Balestra");
+        metaBalestra.setLore(Arrays.asList(
+                ChatColor.GRAY + "Arma da lancio potente",
+                ChatColor.GRAY + "per attacchi precisi",
+                "",
+                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€900"
+        ));
+        balestra.setItemMeta(metaBalestra);
+        generale.setItem(14, balestra);
+
+        // Tridente (NUOVO)
+        ItemStack tridente = new ItemStack(Material.TRIDENT);
+        ItemMeta metaTridente = tridente.getItemMeta();
+        metaTridente.setDisplayName(ChatColor.DARK_AQUA + "" + ChatColor.BOLD + "Tridente");
+        metaTridente.setLore(Arrays.asList(
+                ChatColor.GRAY + "Arma leggendaria del mare",
+                ChatColor.GRAY + "per veri esploratori",
+                "",
+                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€2500"
+        ));
+        tridente.setItemMeta(metaTridente);
+        generale.setItem(15, tridente);
 
         // Arco
         ItemStack arco = new ItemStack(Material.BOW);
@@ -120,7 +147,90 @@ public class Generale implements Listener {
                 ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€600"
         ));
         arco.setItemMeta(metaArco);
-        generale.setItem(14, arco);
+        generale.setItem(16, arco);
+
+        // === CIBO ===
+
+        // Steak (NUOVO)
+        ItemStack steak = new ItemStack(Material.COOKED_BEEF);
+        ItemMeta metaSteak = steak.getItemMeta();
+        metaSteak.setDisplayName(ChatColor.RED + "" + ChatColor.BOLD + "Bistecca Cotta");
+        metaSteak.setLore(Arrays.asList(
+                ChatColor.GRAY + "Cibo nutriente che ripristina",
+                ChatColor.GRAY + "molta fame e salute",
+                "",
+                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€150"
+        ));
+        steak.setItemMeta(metaSteak);
+        generale.setItem(19, steak);
+
+        // Pane (NUOVO)
+        ItemStack pane = new ItemStack(Material.BREAD);
+        ItemMeta metaPane = pane.getItemMeta();
+        metaPane.setDisplayName(ChatColor.GOLD + "" + ChatColor.BOLD + "Pane");
+        metaPane.setLore(Arrays.asList(
+                ChatColor.GRAY + "Alimento base economico",
+                ChatColor.GRAY + "per lunghe avventure",
+                "",
+                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€80"
+        ));
+        pane.setItemMeta(metaPane);
+        generale.setItem(20, pane);
+
+        // Mela d'Oro
+        ItemStack melaDOro = new ItemStack(Material.GOLDEN_APPLE);
+        ItemMeta metaMela = melaDOro.getItemMeta();
+        metaMela.setDisplayName(ChatColor.GOLD + "" + ChatColor.BOLD + "Mela d'Oro");
+        metaMela.setLore(Arrays.asList(
+                ChatColor.GRAY + "Una prelibatezza che rigenera",
+                ChatColor.GRAY + "la salute istantaneamente",
+                "",
+                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€1200"
+        ));
+        melaDOro.setItemMeta(metaMela);
+        generale.setItem(21, melaDOro);
+
+        // === MUNIZIONI ===
+
+        // Frecce normali
+        ItemStack frecce = new ItemStack(Material.ARROW, 1);
+        ItemMeta metaFrecce = frecce.getItemMeta();
+        metaFrecce.setDisplayName(ChatColor.YELLOW + "" + ChatColor.BOLD + "Freccia");
+        metaFrecce.setLore(Arrays.asList(
+                ChatColor.GRAY + "Freccia affilata per il tuo arco",
+                "",
+                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€300"
+        ));
+        frecce.setItemMeta(metaFrecce);
+        generale.setItem(28, frecce);
+
+        // Freccia Spectral (NUOVO)
+        ItemStack frecciaSpectral = new ItemStack(Material.SPECTRAL_ARROW, 1);
+        ItemMeta metaFrecciaSpectral = frecciaSpectral.getItemMeta();
+        metaFrecciaSpectral.setDisplayName(ChatColor.YELLOW + "" + ChatColor.BOLD + "Freccia Spectral");
+        metaFrecciaSpectral.setLore(Arrays.asList(
+                ChatColor.GRAY + "Freccia magica che rivela",
+                ChatColor.GRAY + "i nemici colpiti",
+                "",
+                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€500"
+        ));
+        frecciaSpectral.setItemMeta(metaFrecciaSpectral);
+        generale.setItem(29, frecciaSpectral);
+
+        // Firework Rocket (NUOVO)
+        ItemStack firework = new ItemStack(Material.FIREWORK_ROCKET, 1);
+        ItemMeta metaFirework = firework.getItemMeta();
+        metaFirework.setDisplayName(ChatColor.RED + "" + ChatColor.BOLD + "Razzo Pirotecnico");
+        metaFirework.setLore(Arrays.asList(
+                ChatColor.GRAY + "Munizione esplosiva per",
+                ChatColor.GRAY + "balestre e volo con elytra",
+                "",
+                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€400"
+        ));
+        firework.setItemMeta(metaFirework);
+        generale.setItem(30, firework);
+
+        // === OGGETTI PREZIOSI ===
 
         // Diamante
         ItemStack diamante = new ItemStack(Material.DIAMOND);
@@ -133,7 +243,20 @@ public class Generale implements Listener {
                 ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€2000"
         ));
         diamante.setItemMeta(metaDiamante);
-        generale.setItem(16, diamante);
+        generale.setItem(25, diamante);
+
+        // Bottiglia di Esperienza (NUOVO)
+        ItemStack bottigliaExp = new ItemStack(Material.EXPERIENCE_BOTTLE, 1);
+        ItemMeta metaBottigliaExp = bottigliaExp.getItemMeta();
+        metaBottigliaExp.setDisplayName(ChatColor.LIGHT_PURPLE + "" + ChatColor.BOLD + "Bottiglia di Esperienza");
+        metaBottigliaExp.setLore(Arrays.asList(
+                ChatColor.GRAY + "Contiene esperienza pura",
+                ChatColor.GRAY + "per aumentare i tuoi livelli",
+                "",
+                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€600"
+        ));
+        bottigliaExp.setItemMeta(metaBottigliaExp);
+        generale.setItem(34, bottigliaExp);
 
         // Bottone per tornare indietro
         ItemStack tornIndietro = new ItemStack(Material.ARROW);
@@ -173,7 +296,7 @@ public class Generale implements Listener {
                         p.getInventory().addItem(spadaDiamante);
                         econManager.removeMoney(p, 1500);
                         p.sendMessage(ChatColor.GREEN + "Hai acquistato una Spada di Diamante per €1500!");
-                        openGenerale(p); // Ricarica l'inventario per aggiornare il saldo
+                        openGenerale(p);
                     } else {
                         p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €1500");
                     }
@@ -191,31 +314,55 @@ public class Generale implements Listener {
                     }
                     break;
 
-                case 12: // Mela d'Oro
-                    if (econManager.checkMoney(p) >= 1200) {
-                        ItemStack melaDOro = new ItemStack(Material.GOLDEN_APPLE);
-                        p.getInventory().addItem(melaDOro);
-                        econManager.removeMoney(p, 1200);
-                        p.sendMessage(ChatColor.GREEN + "Hai acquistato una Mela d'Oro per €1200!");
+                case 12: // Ascia di Diamante (NUOVO)
+                    if (econManager.checkMoney(p) >= 1400) {
+                        ItemStack asciaDiamante = new ItemStack(Material.DIAMOND_AXE);
+                        p.getInventory().addItem(asciaDiamante);
+                        econManager.removeMoney(p, 1400);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato un'Ascia di Diamante per €1400!");
                         openGenerale(p);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €1200");
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €1400");
                     }
                     break;
 
-                case 13: // Frecce
-                    if (econManager.checkMoney(p) >= 300) {
-                        ItemStack frecce = new ItemStack(Material.ARROW, 1);
-                        p.getInventory().addItem(frecce);
-                        econManager.removeMoney(p, 300);
-                        p.sendMessage(ChatColor.GREEN + "Hai acquistato una freccia per €300!");
+                case 13: // Ascia di Ferro (NUOVO)
+                    if (econManager.checkMoney(p) >= 700) {
+                        ItemStack asciaFerro = new ItemStack(Material.IRON_AXE);
+                        p.getInventory().addItem(asciaFerro);
+                        econManager.removeMoney(p, 700);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato un'Ascia di Ferro per €700!");
                         openGenerale(p);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €300");
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €700");
                     }
                     break;
 
-                case 14: // Arco
+                case 14: // Balestra (NUOVO)
+                    if (econManager.checkMoney(p) >= 900) {
+                        ItemStack balestra = new ItemStack(Material.CROSSBOW);
+                        p.getInventory().addItem(balestra);
+                        econManager.removeMoney(p, 900);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato una Balestra per €900!");
+                        openGenerale(p);
+                    } else {
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €900");
+                    }
+                    break;
+
+                case 15: // Tridente (NUOVO)
+                    if (econManager.checkMoney(p) >= 2500) {
+                        ItemStack tridente = new ItemStack(Material.TRIDENT);
+                        p.getInventory().addItem(tridente);
+                        econManager.removeMoney(p, 2500);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato un Tridente per €2500!");
+                        openGenerale(p);
+                    } else {
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €2500");
+                    }
+                    break;
+
+                case 16: // Arco
                     if (econManager.checkMoney(p) >= 600) {
                         ItemStack arco = new ItemStack(Material.BOW);
                         p.getInventory().addItem(arco);
@@ -227,7 +374,79 @@ public class Generale implements Listener {
                     }
                     break;
 
-                case 16: // Diamante
+                case 19: // Steak (NUOVO)
+                    if (econManager.checkMoney(p) >= 150) {
+                        ItemStack steak = new ItemStack(Material.COOKED_BEEF);
+                        p.getInventory().addItem(steak);
+                        econManager.removeMoney(p, 150);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato una Bistecca Cotta per €150!");
+                        openGenerale(p);
+                    } else {
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €150");
+                    }
+                    break;
+
+                case 20: // Pane (NUOVO)
+                    if (econManager.checkMoney(p) >= 80) {
+                        ItemStack pane = new ItemStack(Material.BREAD);
+                        p.getInventory().addItem(pane);
+                        econManager.removeMoney(p, 80);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato del Pane per €80!");
+                        openGenerale(p);
+                    } else {
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €80");
+                    }
+                    break;
+
+                case 21: // Mela d'Oro
+                    if (econManager.checkMoney(p) >= 1200) {
+                        ItemStack melaDOro = new ItemStack(Material.GOLDEN_APPLE);
+                        p.getInventory().addItem(melaDOro);
+                        econManager.removeMoney(p, 1200);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato una Mela d'Oro per €1200!");
+                        openGenerale(p);
+                    } else {
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €1200");
+                    }
+                    break;
+
+                case 28: // Frecce
+                    if (econManager.checkMoney(p) >= 300) {
+                        ItemStack frecce = new ItemStack(Material.ARROW, 1);
+                        p.getInventory().addItem(frecce);
+                        econManager.removeMoney(p, 300);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato una freccia per €300!");
+                        openGenerale(p);
+                    } else {
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €300");
+                    }
+                    break;
+
+                case 29: // Freccia Spectral (NUOVO)
+                    if (econManager.checkMoney(p) >= 500) {
+                        ItemStack frecciaSpectral = new ItemStack(Material.SPECTRAL_ARROW, 1);
+                        p.getInventory().addItem(frecciaSpectral);
+                        econManager.removeMoney(p, 500);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato una Freccia Spectral per €500!");
+                        openGenerale(p);
+                    } else {
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €500");
+                    }
+                    break;
+
+                case 30: // Firework Rocket (NUOVO)
+                    if (econManager.checkMoney(p) >= 400) {
+                        ItemStack firework = new ItemStack(Material.FIREWORK_ROCKET, 1);
+                        p.getInventory().addItem(firework);
+                        econManager.removeMoney(p, 400);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato un Razzo Pirotecnico per €400!");
+                        openGenerale(p);
+                    } else {
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €400");
+                    }
+                    break;
+
+                case 25: // Diamante
                     if (econManager.checkMoney(p) >= 2000) {
                         ItemStack diamante = new ItemStack(Material.DIAMOND);
                         p.getInventory().addItem(diamante);
@@ -236,6 +455,18 @@ public class Generale implements Listener {
                         openGenerale(p);
                     } else {
                         p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €2000");
+                    }
+                    break;
+
+                case 34: // Bottiglia di Esperienza (NUOVO)
+                    if (econManager.checkMoney(p) >= 600) {
+                        ItemStack bottigliaExp = new ItemStack(Material.EXPERIENCE_BOTTLE, 1);
+                        p.getInventory().addItem(bottigliaExp);
+                        econManager.removeMoney(p, 600);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato una Bottiglia di Esperienza per €600!");
+                        openGenerale(p);
+                    } else {
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €600");
                     }
                     break;
 
