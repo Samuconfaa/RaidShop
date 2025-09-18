@@ -9,6 +9,7 @@ import it.samuconfaa.raidShop.shopgui.Generale;
 import it.samuconfaa.raidShop.shopgui.Libri;
 import it.samuconfaa.raidShop.shopgui.Pozioni;
 import it.samuconfaa.raidShop.shopgui.Armor;
+import it.samuconfaa.raidShop.shopgui.IngredientiPozioni;
 import it.samuconfaa.raidShop.shopgui.Shop;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -25,6 +26,7 @@ public final class RaidShop extends JavaPlugin {
     private Pozioni pozioni;
     private Libri libri;
     private Armor armor;
+    private IngredientiPozioni ingredientiPozioni;
     private ShopNPC shopNPC;
 
     @Override
@@ -42,14 +44,16 @@ public final class RaidShop extends JavaPlugin {
         this.pozioni = new Pozioni(this, econManager);
         this.libri = new Libri(this, econManager);
         this.armor = new Armor(this, econManager);
+        this.ingredientiPozioni = new IngredientiPozioni(this, econManager);
 
-        this.shop = new Shop(this, generale, pozioni, libri, armor, econManager);
+        this.shop = new Shop(this, generale, pozioni, libri, armor, ingredientiPozioni, econManager);
         this.shopNPC = new ShopNPC(this, shop);
 
         this.generale.setShop(this.shop);
         this.pozioni.setShop(this.shop);
         this.libri.setShop(this.shop);
         this.armor.setShop(this.shop);
+        this.ingredientiPozioni.setShop(this.shop);
 
         getCommand("shopraid").setExecutor(new ShopCommand(this, shop));
         getCommand("setnpcshop").setExecutor(new NPCCommand(this, shopNPC));
@@ -58,11 +62,12 @@ public final class RaidShop extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(pozioni, this);
         Bukkit.getPluginManager().registerEvents(libri, this);
         Bukkit.getPluginManager().registerEvents(armor, this);
+        Bukkit.getPluginManager().registerEvents(ingredientiPozioni, this);
         Bukkit.getPluginManager().registerEvents(shop, this);
         Bukkit.getPluginManager().registerEvents(shopNPC, this);
 
         getLogger().info("RaidShop è stato abilitato con successo!");
-        getLogger().info("Sezioni disponibili: Generale, Pozioni, Incantesimi, Armature");
+        getLogger().info("Sezioni disponibili: Generale, Pozioni, Incantesimi, Armature, Ingredienti Pozioni");
     }
 
     @Override

@@ -3,6 +3,7 @@ GUI:
   libri: "&l&bNegozio Incantesimi"
   pozioni: "&l&dNegozio Pozioni"
   armor: "&l&cNegozio Armature"
+  ingredienti: "&l&3Ingredienti Pozioni"
   shop: "&l&eNegozio Principale"
 
 messages:

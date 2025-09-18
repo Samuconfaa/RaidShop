@@ -42,6 +42,10 @@ public class ConfigManager {
         return ChatColor.translateAlternateColorCodes('&', config.getString("GUI.armor"));
     }
 
+    public String getIngredientiName(){
+        return ChatColor.translateAlternateColorCodes('&', config.getString("GUI.ingredienti"));
+    }
+
     /*
         MESSAGGI
      */

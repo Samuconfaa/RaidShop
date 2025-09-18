@@ -21,14 +21,16 @@ public class Shop implements Listener {
     private final Generale generale;
     private final Pozioni pozioni;
     private final Armor armor;
+    private final IngredientiPozioni ingredientiPozioni;
     private final EconomyManager econManager;
 
-    public Shop(RaidShop plugin, Generale generale, Pozioni pozioni, Libri libri, Armor armor, EconomyManager econManager) {
+    public Shop(RaidShop plugin, Generale generale, Pozioni pozioni, Libri libri, Armor armor, IngredientiPozioni ingredientiPozioni, EconomyManager econManager) {
         this.plugin = plugin;
         this.generale = generale;
         this.pozioni = pozioni;
         this.libri = libri;
         this.armor = armor;
+        this.ingredientiPozioni = ingredientiPozioni;
         this.econManager = econManager;
     }
 
@@ -70,7 +72,7 @@ public class Shop implements Listener {
                 ChatColor.YELLOW + "Clicca per aprire!"
         ));
         generale.setItemMeta(metaGenerale);
-        shop.setItem(20, generale);
+        shop.setItem(19, generale);
 
         // Sezione Pozioni
         ItemStack pozioni = new ItemStack(Material.POTION, 1, (short) 8197);
@@ -83,7 +85,7 @@ public class Shop implements Listener {
                 ChatColor.YELLOW + "Clicca per aprire!"
         ));
         pozioni.setItemMeta(metaPozioni);
-        shop.setItem(22, pozioni);
+        shop.setItem(21, pozioni);
 
         // Sezione Libri Incantati
         ItemStack libri = new ItemStack(Material.ENCHANTED_BOOK);
@@ -96,9 +98,9 @@ public class Shop implements Listener {
                 ChatColor.YELLOW + "Clicca per aprire!"
         ));
         libri.setItemMeta(metaLibri);
-        shop.setItem(24, libri);
+        shop.setItem(23, libri);
 
-        // Sezione Armature (NUOVA!)
+        // Sezione Armature
         ItemStack armature = new ItemStack(Material.DIAMOND_CHESTPLATE);
         ItemMeta metaArmature = armature.getItemMeta();
         metaArmature.setDisplayName(ChatColor.AQUA + "" + ChatColor.BOLD + "SEZIONE ARMATURE");
@@ -109,7 +111,20 @@ public class Shop implements Listener {
                 ChatColor.YELLOW + "Clicca per aprire!"
         ));
         armature.setItemMeta(metaArmature);
-        shop.setItem(31, armature);
+        shop.setItem(25, armature);
+
+        // Sezione Ingredienti Pozioni (NUOVA!)
+        ItemStack ingredienti = new ItemStack(Material.BREWING_STAND);
+        ItemMeta metaIngredienti = ingredienti.getItemMeta();
+        metaIngredienti.setDisplayName(ChatColor.DARK_AQUA + "" + ChatColor.BOLD + "INGREDIENTI POZIONI");
+        metaIngredienti.setLore(Arrays.asList(
+                ChatColor.GRAY + "Tutto ciò che serve per",
+                ChatColor.GRAY + "preparare pozioni all'alambicco",
+                "",
+                ChatColor.YELLOW + "Clicca per aprire!"
+        ));
+        ingredienti.setItemMeta(metaIngredienti);
+        shop.setItem(31, ingredienti);
 
         // Info centrale - Logo del negozio
         ItemStack logo = new ItemStack(Material.EMERALD);
@@ -135,6 +150,7 @@ public class Shop implements Listener {
                 ChatColor.LIGHT_PURPLE + "• " + ChatColor.WHITE + "Pozioni: " + ChatColor.GRAY + "Elisir magici",
                 ChatColor.BLUE + "• " + ChatColor.WHITE + "Incantesimi: " + ChatColor.GRAY + "Libri incantati",
                 ChatColor.AQUA + "• " + ChatColor.WHITE + "Armature: " + ChatColor.GRAY + "Set di protezione",
+                ChatColor.DARK_AQUA + "• " + ChatColor.WHITE + "Ingredienti: " + ChatColor.GRAY + "Per l'alambicco",
                 "",
                 ChatColor.GOLD + "Buona spesa!"
         ));
@@ -155,20 +171,24 @@ public class Shop implements Listener {
             int slot = e.getRawSlot();
 
             switch (slot) {
-                case 20: // Sezione Generale
+                case 19: // Sezione Generale
                     generale.openGenerale(p);
                     break;
 
-                case 22: // Sezione Pozioni
+                case 21: // Sezione Pozioni
                     pozioni.openPozioni(p);
                     break;
 
-                case 24: // Sezione Libri
+                case 23: // Sezione Libri
                     libri.openLibri(p);
                     break;
 
-                case 31: // Sezione Armature (NUOVA!)
+                case 25: // Sezione Armature
                     armor.openArmor(p);
+                    break;
+
+                case 31: // Sezione Ingredienti Pozioni (NUOVA!)
+                    ingredientiPozioni.openIngredientiPozioni(p);
                     break;
             }
         }
