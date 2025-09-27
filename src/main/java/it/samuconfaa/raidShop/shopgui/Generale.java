@@ -35,7 +35,7 @@ public class Generale implements Listener {
         Inventory generale = Bukkit.createInventory(p, 54, plugin.getConfigManager().getGeneraleName());
 
         // Decorazioni - Vetri colorati per i bordi
-        ItemStack border = new ItemStack(Material.GREEN_STAINED_GLASS_PANE, 1, (short) 7); // Grigio
+        ItemStack border = new ItemStack(Material.GREEN_STAINED_GLASS_PANE, 1, (short) 7);
         ItemMeta borderMeta = border.getItemMeta();
         borderMeta.setDisplayName(" ");
         border.setItemMeta(borderMeta);
@@ -47,7 +47,7 @@ public class Generale implements Listener {
         }
 
         // Decorazioni laterali verdi
-        ItemStack greenGlass = new ItemStack(Material.GREEN_STAINED_GLASS_PANE, 1, (short) 5); // Verde
+        ItemStack greenGlass = new ItemStack(Material.GREEN_STAINED_GLASS_PANE, 1, (short) 5);
         ItemMeta greenMeta = greenGlass.getItemMeta();
         greenMeta.setDisplayName(" ");
         greenGlass.setItemMeta(greenMeta);
@@ -66,7 +66,7 @@ public class Generale implements Listener {
                 ChatColor.GRAY + "Una potente spada di diamante",
                 ChatColor.GRAY + "per i veri guerrieri!",
                 "",
-                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€1500"
+                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€" + String.format("%.0f", plugin.getConfigManager().getDiamondSwordPrice())
         ));
         spadaDiamante.setItemMeta(metaSpadaDiamante);
         generale.setItem(10, spadaDiamante);
@@ -79,12 +79,12 @@ public class Generale implements Listener {
                 ChatColor.GRAY + "Una solida spada di ferro",
                 ChatColor.GRAY + "per combattimenti efficaci",
                 "",
-                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€800"
+                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€" + String.format("%.0f", plugin.getConfigManager().getIronSwordPrice())
         ));
         spadaFerro.setItemMeta(metaSpadaFerro);
         generale.setItem(11, spadaFerro);
 
-        // Ascia di Diamante (NUOVO)
+        // Ascia di Diamante
         ItemStack asciaDiamante = new ItemStack(Material.DIAMOND_AXE);
         ItemMeta metaAsciaDiamante = asciaDiamante.getItemMeta();
         metaAsciaDiamante.setDisplayName(ChatColor.AQUA + "" + ChatColor.BOLD + "Ascia di Diamante");
@@ -92,12 +92,12 @@ public class Generale implements Listener {
                 ChatColor.GRAY + "Ascia potente per tagliare",
                 ChatColor.GRAY + "legno e combattere",
                 "",
-                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€1400"
+                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€" + String.format("%.0f", plugin.getConfigManager().getDiamondAxePrice())
         ));
         asciaDiamante.setItemMeta(metaAsciaDiamante);
         generale.setItem(12, asciaDiamante);
 
-        // Ascia di Ferro (NUOVO)
+        // Ascia di Ferro
         ItemStack asciaFerro = new ItemStack(Material.IRON_AXE);
         ItemMeta metaAsciaFerro = asciaFerro.getItemMeta();
         metaAsciaFerro.setDisplayName(ChatColor.WHITE + "" + ChatColor.BOLD + "Ascia di Ferro");
@@ -105,12 +105,12 @@ public class Generale implements Listener {
                 ChatColor.GRAY + "Ascia affidabile per",
                 ChatColor.GRAY + "ogni necessità",
                 "",
-                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€700"
+                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€" + String.format("%.0f", plugin.getConfigManager().getIronAxePrice())
         ));
         asciaFerro.setItemMeta(metaAsciaFerro);
         generale.setItem(13, asciaFerro);
 
-        // Balestra (NUOVO)
+        // Balestra
         ItemStack balestra = new ItemStack(Material.CROSSBOW);
         ItemMeta metaBalestra = balestra.getItemMeta();
         metaBalestra.setDisplayName(ChatColor.DARK_RED + "" + ChatColor.BOLD + "Balestra");
@@ -118,12 +118,12 @@ public class Generale implements Listener {
                 ChatColor.GRAY + "Arma da lancio potente",
                 ChatColor.GRAY + "per attacchi precisi",
                 "",
-                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€900"
+                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€" + String.format("%.0f", plugin.getConfigManager().getCrossbowPrice())
         ));
         balestra.setItemMeta(metaBalestra);
         generale.setItem(14, balestra);
 
-        // Tridente (NUOVO)
+        // Tridente
         ItemStack tridente = new ItemStack(Material.TRIDENT);
         ItemMeta metaTridente = tridente.getItemMeta();
         metaTridente.setDisplayName(ChatColor.DARK_AQUA + "" + ChatColor.BOLD + "Tridente");
@@ -131,7 +131,7 @@ public class Generale implements Listener {
                 ChatColor.GRAY + "Arma leggendaria del mare",
                 ChatColor.GRAY + "per veri esploratori",
                 "",
-                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€2500"
+                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€" + String.format("%.0f", plugin.getConfigManager().getTridentPrice())
         ));
         tridente.setItemMeta(metaTridente);
         generale.setItem(15, tridente);
@@ -144,14 +144,14 @@ public class Generale implements Listener {
                 ChatColor.GRAY + "Un arco resistente per",
                 ChatColor.GRAY + "attacchi a distanza precisi",
                 "",
-                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€600"
+                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€" + String.format("%.0f", plugin.getConfigManager().getBowPrice())
         ));
         arco.setItemMeta(metaArco);
         generale.setItem(16, arco);
 
         // === CIBO ===
 
-        // Steak (NUOVO)
+        // Steak
         ItemStack steak = new ItemStack(Material.COOKED_BEEF);
         ItemMeta metaSteak = steak.getItemMeta();
         metaSteak.setDisplayName(ChatColor.RED + "" + ChatColor.BOLD + "Bistecca Cotta");
@@ -159,12 +159,12 @@ public class Generale implements Listener {
                 ChatColor.GRAY + "Cibo nutriente che ripristina",
                 ChatColor.GRAY + "molta fame e salute",
                 "",
-                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€150"
+                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€" + String.format("%.0f", plugin.getConfigManager().getCookedBeefPrice())
         ));
         steak.setItemMeta(metaSteak);
         generale.setItem(19, steak);
 
-        // Pane (NUOVO)
+        // Pane
         ItemStack pane = new ItemStack(Material.BREAD);
         ItemMeta metaPane = pane.getItemMeta();
         metaPane.setDisplayName(ChatColor.GOLD + "" + ChatColor.BOLD + "Pane");
@@ -172,7 +172,7 @@ public class Generale implements Listener {
                 ChatColor.GRAY + "Alimento base economico",
                 ChatColor.GRAY + "per lunghe avventure",
                 "",
-                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€80"
+                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€" + String.format("%.0f", plugin.getConfigManager().getBreadPrice())
         ));
         pane.setItemMeta(metaPane);
         generale.setItem(20, pane);
@@ -185,7 +185,7 @@ public class Generale implements Listener {
                 ChatColor.GRAY + "Una prelibatezza che rigenera",
                 ChatColor.GRAY + "la salute istantaneamente",
                 "",
-                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€1200"
+                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€" + String.format("%.0f", plugin.getConfigManager().getGoldenApplePrice())
         ));
         melaDOro.setItemMeta(metaMela);
         generale.setItem(21, melaDOro);
@@ -199,12 +199,12 @@ public class Generale implements Listener {
         metaFrecce.setLore(Arrays.asList(
                 ChatColor.GRAY + "Freccia affilata per il tuo arco",
                 "",
-                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€300"
+                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€" + String.format("%.0f", plugin.getConfigManager().getArrowPrice())
         ));
         frecce.setItemMeta(metaFrecce);
         generale.setItem(28, frecce);
 
-        // Freccia Spectral (NUOVO)
+        // Freccia Spectral
         ItemStack frecciaSpectral = new ItemStack(Material.SPECTRAL_ARROW, 1);
         ItemMeta metaFrecciaSpectral = frecciaSpectral.getItemMeta();
         metaFrecciaSpectral.setDisplayName(ChatColor.YELLOW + "" + ChatColor.BOLD + "Freccia Spectral");
@@ -212,12 +212,12 @@ public class Generale implements Listener {
                 ChatColor.GRAY + "Freccia magica che rivela",
                 ChatColor.GRAY + "i nemici colpiti",
                 "",
-                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€500"
+                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€" + String.format("%.0f", plugin.getConfigManager().getSpectralArrowPrice())
         ));
         frecciaSpectral.setItemMeta(metaFrecciaSpectral);
         generale.setItem(29, frecciaSpectral);
 
-        // Firework Rocket (NUOVO)
+        // Firework Rocket
         ItemStack firework = new ItemStack(Material.FIREWORK_ROCKET, 1);
         ItemMeta metaFirework = firework.getItemMeta();
         metaFirework.setDisplayName(ChatColor.RED + "" + ChatColor.BOLD + "Razzo Pirotecnico");
@@ -225,7 +225,7 @@ public class Generale implements Listener {
                 ChatColor.GRAY + "Munizione esplosiva per",
                 ChatColor.GRAY + "balestre e volo con elytra",
                 "",
-                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€400"
+                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€" + String.format("%.0f", plugin.getConfigManager().getFireworkRocketPrice())
         ));
         firework.setItemMeta(metaFirework);
         generale.setItem(30, firework);
@@ -240,12 +240,12 @@ public class Generale implements Listener {
                 ChatColor.GRAY + "Un prezioso diamante",
                 ChatColor.GRAY + "perfetto per il crafting",
                 "",
-                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€2000"
+                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€" + String.format("%.0f", plugin.getConfigManager().getDiamondPrice())
         ));
         diamante.setItemMeta(metaDiamante);
         generale.setItem(25, diamante);
 
-        // Bottiglia di Esperienza (NUOVO)
+        // Bottiglia di Esperienza
         ItemStack bottigliaExp = new ItemStack(Material.EXPERIENCE_BOTTLE, 1);
         ItemMeta metaBottigliaExp = bottigliaExp.getItemMeta();
         metaBottigliaExp.setDisplayName(ChatColor.LIGHT_PURPLE + "" + ChatColor.BOLD + "Bottiglia di Esperienza");
@@ -253,7 +253,7 @@ public class Generale implements Listener {
                 ChatColor.GRAY + "Contiene esperienza pura",
                 ChatColor.GRAY + "per aumentare i tuoi livelli",
                 "",
-                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€600"
+                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€" + String.format("%.0f", plugin.getConfigManager().getExperienceBottlePrice())
         ));
         bottigliaExp.setItemMeta(metaBottigliaExp);
         generale.setItem(34, bottigliaExp);
@@ -291,182 +291,197 @@ public class Generale implements Listener {
 
             switch (slot) {
                 case 10: // Spada di Diamante
-                    if (econManager.checkMoney(p) >= 1500) {
+                    double spadaDiamantePrice = plugin.getConfigManager().getDiamondSwordPrice();
+                    if (econManager.checkMoney(p) >= spadaDiamantePrice) {
                         ItemStack spadaDiamante = new ItemStack(Material.DIAMOND_SWORD);
                         p.getInventory().addItem(spadaDiamante);
-                        econManager.removeMoney(p, 1500);
-                        p.sendMessage(ChatColor.GREEN + "Hai acquistato una Spada di Diamante per €1500!");
+                        econManager.removeMoney(p, spadaDiamantePrice);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato una Spada di Diamante per €" + String.format("%.0f", spadaDiamantePrice) + "!");
                         openGenerale(p);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €1500");
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €" + String.format("%.0f", spadaDiamantePrice));
                     }
                     break;
 
                 case 11: // Spada di Ferro
-                    if (econManager.checkMoney(p) >= 800) {
+                    double spadaFerroPrice = plugin.getConfigManager().getIronSwordPrice();
+                    if (econManager.checkMoney(p) >= spadaFerroPrice) {
                         ItemStack spadaFerro = new ItemStack(Material.IRON_SWORD);
                         p.getInventory().addItem(spadaFerro);
-                        econManager.removeMoney(p, 800);
-                        p.sendMessage(ChatColor.GREEN + "Hai acquistato una Spada di Ferro per €800!");
+                        econManager.removeMoney(p, spadaFerroPrice);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato una Spada di Ferro per €" + String.format("%.0f", spadaFerroPrice) + "!");
                         openGenerale(p);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €800");
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €" + String.format("%.0f", spadaFerroPrice));
                     }
                     break;
 
-                case 12: // Ascia di Diamante (NUOVO)
-                    if (econManager.checkMoney(p) >= 1400) {
+                case 12: // Ascia di Diamante
+                    double asciaDiamantePrice = plugin.getConfigManager().getDiamondAxePrice();
+                    if (econManager.checkMoney(p) >= asciaDiamantePrice) {
                         ItemStack asciaDiamante = new ItemStack(Material.DIAMOND_AXE);
                         p.getInventory().addItem(asciaDiamante);
-                        econManager.removeMoney(p, 1400);
-                        p.sendMessage(ChatColor.GREEN + "Hai acquistato un'Ascia di Diamante per €1400!");
+                        econManager.removeMoney(p, asciaDiamantePrice);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato un'Ascia di Diamante per €" + String.format("%.0f", asciaDiamantePrice) + "!");
                         openGenerale(p);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €1400");
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €" + String.format("%.0f", asciaDiamantePrice));
                     }
                     break;
 
-                case 13: // Ascia di Ferro (NUOVO)
-                    if (econManager.checkMoney(p) >= 700) {
+                case 13: // Ascia di Ferro
+                    double asciaFerroPrice = plugin.getConfigManager().getIronAxePrice();
+                    if (econManager.checkMoney(p) >= asciaFerroPrice) {
                         ItemStack asciaFerro = new ItemStack(Material.IRON_AXE);
                         p.getInventory().addItem(asciaFerro);
-                        econManager.removeMoney(p, 700);
-                        p.sendMessage(ChatColor.GREEN + "Hai acquistato un'Ascia di Ferro per €700!");
+                        econManager.removeMoney(p, asciaFerroPrice);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato un'Ascia di Ferro per €" + String.format("%.0f", asciaFerroPrice) + "!");
                         openGenerale(p);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €700");
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €" + String.format("%.0f", asciaFerroPrice));
                     }
                     break;
 
-                case 14: // Balestra (NUOVO)
-                    if (econManager.checkMoney(p) >= 900) {
+                case 14: // Balestra
+                    double balestraPrice = plugin.getConfigManager().getCrossbowPrice();
+                    if (econManager.checkMoney(p) >= balestraPrice) {
                         ItemStack balestra = new ItemStack(Material.CROSSBOW);
                         p.getInventory().addItem(balestra);
-                        econManager.removeMoney(p, 900);
-                        p.sendMessage(ChatColor.GREEN + "Hai acquistato una Balestra per €900!");
+                        econManager.removeMoney(p, balestraPrice);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato una Balestra per €" + String.format("%.0f", balestraPrice) + "!");
                         openGenerale(p);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €900");
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €" + String.format("%.0f", balestraPrice));
                     }
                     break;
 
-                case 15: // Tridente (NUOVO)
-                    if (econManager.checkMoney(p) >= 2500) {
+                case 15: // Tridente
+                    double tridentePrice = plugin.getConfigManager().getTridentPrice();
+                    if (econManager.checkMoney(p) >= tridentePrice) {
                         ItemStack tridente = new ItemStack(Material.TRIDENT);
                         p.getInventory().addItem(tridente);
-                        econManager.removeMoney(p, 2500);
-                        p.sendMessage(ChatColor.GREEN + "Hai acquistato un Tridente per €2500!");
+                        econManager.removeMoney(p, tridentePrice);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato un Tridente per €" + String.format("%.0f", tridentePrice) + "!");
                         openGenerale(p);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €2500");
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €" + String.format("%.0f", tridentePrice));
                     }
                     break;
 
                 case 16: // Arco
-                    if (econManager.checkMoney(p) >= 600) {
+                    double arcoPrice = plugin.getConfigManager().getBowPrice();
+                    if (econManager.checkMoney(p) >= arcoPrice) {
                         ItemStack arco = new ItemStack(Material.BOW);
                         p.getInventory().addItem(arco);
-                        econManager.removeMoney(p, 600);
-                        p.sendMessage(ChatColor.GREEN + "Hai acquistato un Arco per €600!");
+                        econManager.removeMoney(p, arcoPrice);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato un Arco per €" + String.format("%.0f", arcoPrice) + "!");
                         openGenerale(p);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €600");
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €" + String.format("%.0f", arcoPrice));
                     }
                     break;
 
-                case 19: // Steak (NUOVO)
-                    if (econManager.checkMoney(p) >= 150) {
+                case 19: // Steak
+                    double steakPrice = plugin.getConfigManager().getCookedBeefPrice();
+                    if (econManager.checkMoney(p) >= steakPrice) {
                         ItemStack steak = new ItemStack(Material.COOKED_BEEF);
                         p.getInventory().addItem(steak);
-                        econManager.removeMoney(p, 150);
-                        p.sendMessage(ChatColor.GREEN + "Hai acquistato una Bistecca Cotta per €150!");
+                        econManager.removeMoney(p, steakPrice);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato una Bistecca Cotta per €" + String.format("%.0f", steakPrice) + "!");
                         openGenerale(p);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €150");
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €" + String.format("%.0f", steakPrice));
                     }
                     break;
 
-                case 20: // Pane (NUOVO)
-                    if (econManager.checkMoney(p) >= 80) {
+                case 20: // Pane
+                    double panePrice = plugin.getConfigManager().getBreadPrice();
+                    if (econManager.checkMoney(p) >= panePrice) {
                         ItemStack pane = new ItemStack(Material.BREAD);
                         p.getInventory().addItem(pane);
-                        econManager.removeMoney(p, 80);
-                        p.sendMessage(ChatColor.GREEN + "Hai acquistato del Pane per €80!");
+                        econManager.removeMoney(p, panePrice);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato del Pane per €" + String.format("%.0f", panePrice) + "!");
                         openGenerale(p);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €80");
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €" + String.format("%.0f", panePrice));
                     }
                     break;
 
                 case 21: // Mela d'Oro
-                    if (econManager.checkMoney(p) >= 1200) {
+                    double melaDOroPrice = plugin.getConfigManager().getGoldenApplePrice();
+                    if (econManager.checkMoney(p) >= melaDOroPrice) {
                         ItemStack melaDOro = new ItemStack(Material.GOLDEN_APPLE);
                         p.getInventory().addItem(melaDOro);
-                        econManager.removeMoney(p, 1200);
-                        p.sendMessage(ChatColor.GREEN + "Hai acquistato una Mela d'Oro per €1200!");
+                        econManager.removeMoney(p, melaDOroPrice);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato una Mela d'Oro per €" + String.format("%.0f", melaDOroPrice) + "!");
                         openGenerale(p);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €1200");
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €" + String.format("%.0f", melaDOroPrice));
                     }
                     break;
 
                 case 28: // Frecce
-                    if (econManager.checkMoney(p) >= 300) {
+                    double freccePrice = plugin.getConfigManager().getArrowPrice();
+                    if (econManager.checkMoney(p) >= freccePrice) {
                         ItemStack frecce = new ItemStack(Material.ARROW, 1);
                         p.getInventory().addItem(frecce);
-                        econManager.removeMoney(p, 300);
-                        p.sendMessage(ChatColor.GREEN + "Hai acquistato una freccia per €300!");
+                        econManager.removeMoney(p, freccePrice);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato una freccia per €" + String.format("%.0f", freccePrice) + "!");
                         openGenerale(p);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €300");
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €" + String.format("%.0f", freccePrice));
                     }
                     break;
 
-                case 29: // Freccia Spectral (NUOVO)
-                    if (econManager.checkMoney(p) >= 500) {
+                case 29: // Freccia Spectral
+                    double frecciaSpectralPrice = plugin.getConfigManager().getSpectralArrowPrice();
+                    if (econManager.checkMoney(p) >= frecciaSpectralPrice) {
                         ItemStack frecciaSpectral = new ItemStack(Material.SPECTRAL_ARROW, 1);
                         p.getInventory().addItem(frecciaSpectral);
-                        econManager.removeMoney(p, 500);
-                        p.sendMessage(ChatColor.GREEN + "Hai acquistato una Freccia Spectral per €500!");
+                        econManager.removeMoney(p, frecciaSpectralPrice);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato una Freccia Spectral per €" + String.format("%.0f", frecciaSpectralPrice) + "!");
                         openGenerale(p);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €500");
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €" + String.format("%.0f", frecciaSpectralPrice));
                     }
                     break;
 
-                case 30: // Firework Rocket (NUOVO)
-                    if (econManager.checkMoney(p) >= 400) {
+                case 30: // Firework Rocket
+                    double fireworkPrice = plugin.getConfigManager().getFireworkRocketPrice();
+                    if (econManager.checkMoney(p) >= fireworkPrice) {
                         ItemStack firework = new ItemStack(Material.FIREWORK_ROCKET, 1);
                         p.getInventory().addItem(firework);
-                        econManager.removeMoney(p, 400);
-                        p.sendMessage(ChatColor.GREEN + "Hai acquistato un Razzo Pirotecnico per €400!");
+                        econManager.removeMoney(p, fireworkPrice);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato un Razzo Pirotecnico per €" + String.format("%.0f", fireworkPrice) + "!");
                         openGenerale(p);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €400");
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €" + String.format("%.0f", fireworkPrice));
                     }
                     break;
 
                 case 25: // Diamante
-                    if (econManager.checkMoney(p) >= 2000) {
+                    double diamantePrice = plugin.getConfigManager().getDiamondPrice();
+                    if (econManager.checkMoney(p) >= diamantePrice) {
                         ItemStack diamante = new ItemStack(Material.DIAMOND);
                         p.getInventory().addItem(diamante);
-                        econManager.removeMoney(p, 2000);
-                        p.sendMessage(ChatColor.GREEN + "Hai acquistato un Diamante per €2000!");
+                        econManager.removeMoney(p, diamantePrice);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato un Diamante per €" + String.format("%.0f", diamantePrice) + "!");
                         openGenerale(p);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €2000");
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €" + String.format("%.0f", diamantePrice));
                     }
                     break;
 
-                case 34: // Bottiglia di Esperienza (NUOVO)
-                    if (econManager.checkMoney(p) >= 600) {
+                case 34: // Bottiglia di Esperienza
+                    double bottigliaExpPrice = plugin.getConfigManager().getExperienceBottlePrice();
+                    if (econManager.checkMoney(p) >= bottigliaExpPrice) {
                         ItemStack bottigliaExp = new ItemStack(Material.EXPERIENCE_BOTTLE, 1);
                         p.getInventory().addItem(bottigliaExp);
-                        econManager.removeMoney(p, 600);
-                        p.sendMessage(ChatColor.GREEN + "Hai acquistato una Bottiglia di Esperienza per €600!");
+                        econManager.removeMoney(p, bottigliaExpPrice);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato una Bottiglia di Esperienza per €" + String.format("%.0f", bottigliaExpPrice) + "!");
                         openGenerale(p);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €600");
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €" + String.format("%.0f", bottigliaExpPrice));
                     }
                     break;
 

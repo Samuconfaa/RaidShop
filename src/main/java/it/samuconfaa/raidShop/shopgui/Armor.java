@@ -34,7 +34,7 @@ public class Armor implements Listener {
         Inventory armor = Bukkit.createInventory(p, 54, plugin.getConfigManager().getArmorName());
 
         // Decorazioni - Vetri colorati per i bordi
-        ItemStack border = new ItemStack(Material.ORANGE_STAINED_GLASS_PANE, 1, (short) 8); // Grigio scuro
+        ItemStack border = new ItemStack(Material.ORANGE_STAINED_GLASS_PANE, 1, (short) 8);
         ItemMeta borderMeta = border.getItemMeta();
         borderMeta.setDisplayName(" ");
         border.setItemMeta(borderMeta);
@@ -46,7 +46,7 @@ public class Armor implements Listener {
         }
 
         // Decorazioni laterali arancioni
-        ItemStack orangeGlass = new ItemStack(Material.ORANGE_STAINED_GLASS_PANE, 1, (short) 1); // Arancione
+        ItemStack orangeGlass = new ItemStack(Material.ORANGE_STAINED_GLASS_PANE, 1, (short) 1);
         ItemMeta orangeMeta = orangeGlass.getItemMeta();
         orangeMeta.setDisplayName(" ");
         orangeGlass.setItemMeta(orangeMeta);
@@ -73,7 +73,7 @@ public class Armor implements Listener {
                 ChatColor.GRAY + "Protegge la testa dai",
                 ChatColor.GRAY + "colpi nemici",
                 "",
-                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€800"
+                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€" + String.format("%.0f", plugin.getConfigManager().getIronHelmetPrice())
         ));
         elmoFerro.setItemMeta(metaElmoFerro);
         armor.setItem(10, elmoFerro);
@@ -86,7 +86,7 @@ public class Armor implements Listener {
                 ChatColor.GRAY + "Protegge il torace con",
                 ChatColor.GRAY + "piastre resistenti",
                 "",
-                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€1200"
+                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€" + String.format("%.0f", plugin.getConfigManager().getIronChestplatePrice())
         ));
         corazzaFerro.setItemMeta(metaCorazzaFerro);
         armor.setItem(19, corazzaFerro);
@@ -99,7 +99,7 @@ public class Armor implements Listener {
                 ChatColor.GRAY + "Protegge le gambe durante",
                 ChatColor.GRAY + "i combattimenti",
                 "",
-                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€1000"
+                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€" + String.format("%.0f", plugin.getConfigManager().getIronLeggingsPrice())
         ));
         gambaliFerro.setItemMeta(metaGambaliFerro);
         armor.setItem(28, gambaliFerro);
@@ -112,12 +112,19 @@ public class Armor implements Listener {
                 ChatColor.GRAY + "Proteggono i piedi e",
                 ChatColor.GRAY + "migliorano la stabilità",
                 "",
-                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€600"
+                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€" + String.format("%.0f", plugin.getConfigManager().getIronBootsPrice())
         ));
         stivaliFerro.setItemMeta(metaStivaliFerro);
         armor.setItem(37, stivaliFerro);
 
         // Set Completo Ferro
+        double ironSetOriginalPrice = plugin.getConfigManager().getIronHelmetPrice() +
+                plugin.getConfigManager().getIronChestplatePrice() +
+                plugin.getConfigManager().getIronLeggingsPrice() +
+                plugin.getConfigManager().getIronBootsPrice();
+        double ironSetDiscountedPrice = plugin.getConfigManager().getIronSetPrice();
+        double ironSavings = ironSetOriginalPrice - ironSetDiscountedPrice;
+
         ItemStack setFerro = new ItemStack(Material.IRON_INGOT);
         ItemMeta metaSetFerro = setFerro.getItemMeta();
         metaSetFerro.setDisplayName(ChatColor.WHITE + "" + ChatColor.BOLD + "SET COMPLETO DI FERRO");
@@ -125,9 +132,9 @@ public class Armor implements Listener {
                 ChatColor.GRAY + "Include tutti i pezzi",
                 ChatColor.GRAY + "dell'armatura di ferro",
                 "",
-                ChatColor.GOLD + "Prezzo originale: " + ChatColor.RED + "€3600",
-                ChatColor.GOLD + "Prezzo scontato: " + ChatColor.GREEN + "€3000",
-                ChatColor.YELLOW + "Risparmio: €600!"
+                ChatColor.GOLD + "Prezzo originale: " + ChatColor.RED + "€" + String.format("%.0f", ironSetOriginalPrice),
+                ChatColor.GOLD + "Prezzo scontato: " + ChatColor.GREEN + "€" + String.format("%.0f", ironSetDiscountedPrice),
+                ChatColor.YELLOW + "Risparmio: €" + String.format("%.0f", ironSavings) + "!"
         ));
         setFerro.setItemMeta(metaSetFerro);
         armor.setItem(20, setFerro);
@@ -150,7 +157,7 @@ public class Armor implements Listener {
                 ChatColor.GRAY + "Protezione superiore per",
                 ChatColor.GRAY + "la testa del guerriero",
                 "",
-                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€2400"
+                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€" + String.format("%.0f", plugin.getConfigManager().getDiamondHelmetPrice())
         ));
         elmoDiamante.setItemMeta(metaElmoDiamante);
         armor.setItem(16, elmoDiamante);
@@ -163,7 +170,7 @@ public class Armor implements Listener {
                 ChatColor.GRAY + "Massima protezione del",
                 ChatColor.GRAY + "torace con diamanti puri",
                 "",
-                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€3600"
+                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€" + String.format("%.0f", plugin.getConfigManager().getDiamondChestplatePrice())
         ));
         corazzaDiamante.setItemMeta(metaCorazzaDiamante);
         armor.setItem(25, corazzaDiamante);
@@ -176,7 +183,7 @@ public class Armor implements Listener {
                 ChatColor.GRAY + "Protezione delle gambe",
                 ChatColor.GRAY + "con la forza del diamante",
                 "",
-                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€3000"
+                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€" + String.format("%.0f", plugin.getConfigManager().getDiamondLeggingsPrice())
         ));
         gambaliDiamante.setItemMeta(metaGambaliDiamante);
         armor.setItem(34, gambaliDiamante);
@@ -189,12 +196,19 @@ public class Armor implements Listener {
                 ChatColor.GRAY + "I migliori stivali per",
                 ChatColor.GRAY + "ogni tipo di terreno",
                 "",
-                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€1800"
+                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€" + String.format("%.0f", plugin.getConfigManager().getDiamondBootsPrice())
         ));
         stivaliDiamante.setItemMeta(metaStivaliDiamante);
         armor.setItem(43, stivaliDiamante);
 
         // Set Completo Diamante
+        double diamondSetOriginalPrice = plugin.getConfigManager().getDiamondHelmetPrice() +
+                plugin.getConfigManager().getDiamondChestplatePrice() +
+                plugin.getConfigManager().getDiamondLeggingsPrice() +
+                plugin.getConfigManager().getDiamondBootsPrice();
+        double diamondSetDiscountedPrice = plugin.getConfigManager().getDiamondSetPrice();
+        double diamondSavings = diamondSetOriginalPrice - diamondSetDiscountedPrice;
+
         ItemStack setDiamante = new ItemStack(Material.DIAMOND);
         ItemMeta metaSetDiamante = setDiamante.getItemMeta();
         metaSetDiamante.setDisplayName(ChatColor.AQUA + "" + ChatColor.BOLD + "SET COMPLETO DI DIAMANTE");
@@ -202,9 +216,9 @@ public class Armor implements Listener {
                 ChatColor.GRAY + "Include tutti i pezzi",
                 ChatColor.GRAY + "dell'armatura di diamante",
                 "",
-                ChatColor.GOLD + "Prezzo originale: " + ChatColor.RED + "€10800",
-                ChatColor.GOLD + "Prezzo scontato: " + ChatColor.GREEN + "€9000",
-                ChatColor.YELLOW + "Risparmio: €1800!"
+                ChatColor.GOLD + "Prezzo originale: " + ChatColor.RED + "€" + String.format("%.0f", diamondSetOriginalPrice),
+                ChatColor.GOLD + "Prezzo scontato: " + ChatColor.GREEN + "€" + String.format("%.0f", diamondSetDiscountedPrice),
+                ChatColor.YELLOW + "Risparmio: €" + String.format("%.0f", diamondSavings) + "!"
         ));
         setDiamante.setItemMeta(metaSetDiamante);
         armor.setItem(24, setDiamante);
@@ -243,121 +257,145 @@ public class Armor implements Listener {
             switch (slot) {
                 // FERRO
                 case 10: // Elmo di Ferro
-                    if (econManager.checkMoney(p) >= 800) {
+                    double ironHelmetPrice = plugin.getConfigManager().getIronHelmetPrice();
+                    if (econManager.checkMoney(p) >= ironHelmetPrice) {
                         p.getInventory().addItem(new ItemStack(Material.IRON_HELMET));
-                        econManager.removeMoney(p, 800);
-                        p.sendMessage(ChatColor.GREEN + "Hai acquistato un Elmo di Ferro per €800!");
+                        econManager.removeMoney(p, ironHelmetPrice);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato un Elmo di Ferro per €" + String.format("%.0f", ironHelmetPrice) + "!");
                         openArmor(p);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €800");
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €" + String.format("%.0f", ironHelmetPrice));
                     }
                     break;
 
                 case 19: // Corazza di Ferro
-                    if (econManager.checkMoney(p) >= 1200) {
+                    double ironChestplatePrice = plugin.getConfigManager().getIronChestplatePrice();
+                    if (econManager.checkMoney(p) >= ironChestplatePrice) {
                         p.getInventory().addItem(new ItemStack(Material.IRON_CHESTPLATE));
-                        econManager.removeMoney(p, 1200);
-                        p.sendMessage(ChatColor.GREEN + "Hai acquistato una Corazza di Ferro per €1200!");
+                        econManager.removeMoney(p, ironChestplatePrice);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato una Corazza di Ferro per €" + String.format("%.0f", ironChestplatePrice) + "!");
                         openArmor(p);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €1200");
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €" + String.format("%.0f", ironChestplatePrice));
                     }
                     break;
 
                 case 28: // Gambali di Ferro
-                    if (econManager.checkMoney(p) >= 1000) {
+                    double ironLeggingsPrice = plugin.getConfigManager().getIronLeggingsPrice();
+                    if (econManager.checkMoney(p) >= ironLeggingsPrice) {
                         p.getInventory().addItem(new ItemStack(Material.IRON_LEGGINGS));
-                        econManager.removeMoney(p, 1000);
-                        p.sendMessage(ChatColor.GREEN + "Hai acquistato dei Gambali di Ferro per €1000!");
+                        econManager.removeMoney(p, ironLeggingsPrice);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato dei Gambali di Ferro per €" + String.format("%.0f", ironLeggingsPrice) + "!");
                         openArmor(p);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €1000");
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €" + String.format("%.0f", ironLeggingsPrice));
                     }
                     break;
 
                 case 37: // Stivali di Ferro
-                    if (econManager.checkMoney(p) >= 600) {
+                    double ironBootsPrice = plugin.getConfigManager().getIronBootsPrice();
+                    if (econManager.checkMoney(p) >= ironBootsPrice) {
                         p.getInventory().addItem(new ItemStack(Material.IRON_BOOTS));
-                        econManager.removeMoney(p, 600);
-                        p.sendMessage(ChatColor.GREEN + "Hai acquistato degli Stivali di Ferro per €600!");
+                        econManager.removeMoney(p, ironBootsPrice);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato degli Stivali di Ferro per €" + String.format("%.0f", ironBootsPrice) + "!");
                         openArmor(p);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €600");
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €" + String.format("%.0f", ironBootsPrice));
                     }
                     break;
 
                 case 20: // Set Completo Ferro
-                    if (econManager.checkMoney(p) >= 3000) {
+                    double ironSetPrice = plugin.getConfigManager().getIronSetPrice();
+                    if (econManager.checkMoney(p) >= ironSetPrice) {
                         p.getInventory().addItem(new ItemStack(Material.IRON_HELMET));
                         p.getInventory().addItem(new ItemStack(Material.IRON_CHESTPLATE));
                         p.getInventory().addItem(new ItemStack(Material.IRON_LEGGINGS));
                         p.getInventory().addItem(new ItemStack(Material.IRON_BOOTS));
-                        econManager.removeMoney(p, 3000);
-                        p.sendMessage(ChatColor.GREEN + "Hai acquistato il Set Completo di Ferro per €3000!");
-                        p.sendMessage(ChatColor.YELLOW + "Hai risparmiato €600!");
+                        econManager.removeMoney(p, ironSetPrice);
+
+                        double originalPrice = plugin.getConfigManager().getIronHelmetPrice() +
+                                plugin.getConfigManager().getIronChestplatePrice() +
+                                plugin.getConfigManager().getIronLeggingsPrice() +
+                                plugin.getConfigManager().getIronBootsPrice();
+                        double savings = originalPrice - ironSetPrice;
+
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato il Set Completo di Ferro per €" + String.format("%.0f", ironSetPrice) + "!");
+                        p.sendMessage(ChatColor.YELLOW + "Hai risparmiato €" + String.format("%.0f", savings) + "!");
                         openArmor(p);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €3000");
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €" + String.format("%.0f", ironSetPrice));
                     }
                     break;
 
                 // DIAMANTE
                 case 16: // Elmo di Diamante
-                    if (econManager.checkMoney(p) >= 2400) {
+                    double diamondHelmetPrice = plugin.getConfigManager().getDiamondHelmetPrice();
+                    if (econManager.checkMoney(p) >= diamondHelmetPrice) {
                         p.getInventory().addItem(new ItemStack(Material.DIAMOND_HELMET));
-                        econManager.removeMoney(p, 2400);
-                        p.sendMessage(ChatColor.GREEN + "Hai acquistato un Elmo di Diamante per €2400!");
+                        econManager.removeMoney(p, diamondHelmetPrice);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato un Elmo di Diamante per €" + String.format("%.0f", diamondHelmetPrice) + "!");
                         openArmor(p);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €2400");
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €" + String.format("%.0f", diamondHelmetPrice));
                     }
                     break;
 
                 case 25: // Corazza di Diamante
-                    if (econManager.checkMoney(p) >= 3600) {
+                    double diamondChestplatePrice = plugin.getConfigManager().getDiamondChestplatePrice();
+                    if (econManager.checkMoney(p) >= diamondChestplatePrice) {
                         p.getInventory().addItem(new ItemStack(Material.DIAMOND_CHESTPLATE));
-                        econManager.removeMoney(p, 3600);
-                        p.sendMessage(ChatColor.GREEN + "Hai acquistato una Corazza di Diamante per €3600!");
+                        econManager.removeMoney(p, diamondChestplatePrice);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato una Corazza di Diamante per €" + String.format("%.0f", diamondChestplatePrice) + "!");
                         openArmor(p);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €3600");
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €" + String.format("%.0f", diamondChestplatePrice));
                     }
                     break;
 
                 case 34: // Gambali di Diamante
-                    if (econManager.checkMoney(p) >= 3000) {
+                    double diamondLeggingsPrice = plugin.getConfigManager().getDiamondLeggingsPrice();
+                    if (econManager.checkMoney(p) >= diamondLeggingsPrice) {
                         p.getInventory().addItem(new ItemStack(Material.DIAMOND_LEGGINGS));
-                        econManager.removeMoney(p, 3000);
-                        p.sendMessage(ChatColor.GREEN + "Hai acquistato dei Gambali di Diamante per €3000!");
+                        econManager.removeMoney(p, diamondLeggingsPrice);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato dei Gambali di Diamante per €" + String.format("%.0f", diamondLeggingsPrice) + "!");
                         openArmor(p);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €3000");
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €" + String.format("%.0f", diamondLeggingsPrice));
                     }
                     break;
 
                 case 43: // Stivali di Diamante
-                    if (econManager.checkMoney(p) >= 1800) {
+                    double diamondBootsPrice = plugin.getConfigManager().getDiamondBootsPrice();
+                    if (econManager.checkMoney(p) >= diamondBootsPrice) {
                         p.getInventory().addItem(new ItemStack(Material.DIAMOND_BOOTS));
-                        econManager.removeMoney(p, 1800);
-                        p.sendMessage(ChatColor.GREEN + "Hai acquistato degli Stivali di Diamante per €1800!");
+                        econManager.removeMoney(p, diamondBootsPrice);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato degli Stivali di Diamante per €" + String.format("%.0f", diamondBootsPrice) + "!");
                         openArmor(p);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €1800");
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €" + String.format("%.0f", diamondBootsPrice));
                     }
                     break;
 
                 case 24: // Set Completo Diamante
-                    if (econManager.checkMoney(p) >= 9000) {
+                    double diamondSetPrice = plugin.getConfigManager().getDiamondSetPrice();
+                    if (econManager.checkMoney(p) >= diamondSetPrice) {
                         p.getInventory().addItem(new ItemStack(Material.DIAMOND_HELMET));
                         p.getInventory().addItem(new ItemStack(Material.DIAMOND_CHESTPLATE));
                         p.getInventory().addItem(new ItemStack(Material.DIAMOND_LEGGINGS));
                         p.getInventory().addItem(new ItemStack(Material.DIAMOND_BOOTS));
-                        econManager.removeMoney(p, 9000);
-                        p.sendMessage(ChatColor.GREEN + "Hai acquistato il Set Completo di Diamante per €9000!");
-                        p.sendMessage(ChatColor.YELLOW + "Hai risparmiato €1800!");
+                        econManager.removeMoney(p, diamondSetPrice);
+
+                        double originalPrice = plugin.getConfigManager().getDiamondHelmetPrice() +
+                                plugin.getConfigManager().getDiamondChestplatePrice() +
+                                plugin.getConfigManager().getDiamondLeggingsPrice() +
+                                plugin.getConfigManager().getDiamondBootsPrice();
+                        double savings = originalPrice - diamondSetPrice;
+
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato il Set Completo di Diamante per €" + String.format("%.0f", diamondSetPrice) + "!");
+                        p.sendMessage(ChatColor.YELLOW + "Hai risparmiato €" + String.format("%.0f", savings) + "!");
                         openArmor(p);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €9000");
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €" + String.format("%.0f", diamondSetPrice));
                     }
                     break;
 

@@ -23,6 +23,11 @@ commands:
     usage: /<command>
     permission: raidshop.fix
     permission-message: ${messages.no-permission}
+  raidshop:
+    description: Main RaidShop command for administration.
+    usage: /<command> reload
+    permission: raidshop.reload
+    permission-message: ${messages.no-permission}
 
 permissions:
   raidshop.*:
@@ -32,6 +37,7 @@ permissions:
       raidshop.openshop: true
       raidshop.setnpc: true
       raidshop.fix: true
+      raidshop.reload: true
   raidshop.openshop:
     description: Allows a player to open the shop with the command.
     default: true
@@ -41,3 +47,6 @@ permissions:
   raidshop.fix:
     description: Allows a player to use the repair functionality.
     default: true
+  raidshop.reload:
+    description: Allows a player to reload the RaidShop configuration.
+    default: op

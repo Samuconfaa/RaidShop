@@ -65,7 +65,7 @@ public class IngredientiPozioni implements Listener {
                 ChatColor.GRAY + "Base per tutte le pozioni",
                 ChatColor.GRAY + "da preparare all'alambicco",
                 "",
-                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€200"
+                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€" + String.format("%.0f", plugin.getConfigManager().getPotionPrice())
         ));
         boccettaAcqua.setItemMeta(metaBoccetta);
         ingredienti.setItem(2, boccettaAcqua);
@@ -78,7 +78,7 @@ public class IngredientiPozioni implements Listener {
                 ChatColor.GRAY + "Combustibile per l'alambicco",
                 ChatColor.GRAY + "e ingrediente per pozioni",
                 "",
-                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€400"
+                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€" + String.format("%.0f", plugin.getConfigManager().getBlazePowderPrice())
         ));
         polverBlaze.setItemMeta(metaPolverBlaze);
         ingredienti.setItem(3, polverBlaze);
@@ -91,7 +91,7 @@ public class IngredientiPozioni implements Listener {
                 ChatColor.GRAY + "Base principale per pozioni",
                 ChatColor.GRAY + "complesse e avanzate",
                 "",
-                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€500"
+                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€" + String.format("%.0f", plugin.getConfigManager().getNetherWartPrice())
         ));
         verrucaNether.setItemMeta(metaVerruca);
         ingredienti.setItem(5, verrucaNether);
@@ -106,7 +106,7 @@ public class IngredientiPozioni implements Listener {
                 ChatColor.GRAY + "Ingrediente per pozioni",
                 ChatColor.GRAY + "di veleno e debolezza",
                 "",
-                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€350"
+                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€" + String.format("%.0f", plugin.getConfigManager().getSpiderEyePrice())
         ));
         occhioRagno.setItemMeta(metaOcchioRagno);
         ingredienti.setItem(10, occhioRagno);
@@ -119,7 +119,7 @@ public class IngredientiPozioni implements Listener {
                 ChatColor.GRAY + "Inverte gli effetti delle",
                 ChatColor.GRAY + "pozioni positive in negative",
                 "",
-                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€600"
+                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€" + String.format("%.0f", plugin.getConfigManager().getFermentedSpiderEyePrice())
         ));
         occhioRagnoFermentato.setItemMeta(metaOcchioFermentato);
         ingredienti.setItem(11, occhioRagnoFermentato);
@@ -132,7 +132,7 @@ public class IngredientiPozioni implements Listener {
                 ChatColor.GRAY + "Ingrediente per pozioni",
                 ChatColor.GRAY + "di velocità",
                 "",
-                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€250"
+                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€" + String.format("%.0f", plugin.getConfigManager().getSugarPrice())
         ));
         zucchero.setItemMeta(metaZucchero);
         ingredienti.setItem(12, zucchero);
@@ -145,7 +145,7 @@ public class IngredientiPozioni implements Listener {
                 ChatColor.GRAY + "Ingrediente per pozioni",
                 ChatColor.GRAY + "di cura istantanea",
                 "",
-                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€800"
+                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€" + String.format("%.0f", plugin.getConfigManager().getGlisteringMelonSlicePrice())
         ));
         meloneScintillante.setItemMeta(metaMelone);
         ingredienti.setItem(13, meloneScintillante);
@@ -158,7 +158,7 @@ public class IngredientiPozioni implements Listener {
                 ChatColor.GRAY + "Ingrediente per pozioni",
                 ChatColor.GRAY + "di visione notturna",
                 "",
-                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€700"
+                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€" + String.format("%.0f", plugin.getConfigManager().getGoldenCarrotPrice())
         ));
         carotaDorata.setItemMeta(metaCarota);
         ingredienti.setItem(14, carotaDorata);
@@ -171,7 +171,7 @@ public class IngredientiPozioni implements Listener {
                 ChatColor.GRAY + "Ingrediente per pozioni",
                 ChatColor.GRAY + "di respirazione acquatica",
                 "",
-                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€650"
+                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€" + String.format("%.0f", plugin.getConfigManager().getPufferfishPrice())
         ));
         pescePalla.setItemMeta(metaPesce);
         ingredienti.setItem(15, pescePalla);
@@ -184,7 +184,7 @@ public class IngredientiPozioni implements Listener {
                 ChatColor.GRAY + "Ingrediente per pozioni",
                 ChatColor.GRAY + "di resistenza al fuoco",
                 "",
-                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€900"
+                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€" + String.format("%.0f", plugin.getConfigManager().getMagmaCreamPrice())
         ));
         cremaMagma.setItemMeta(metaCrema);
         ingredienti.setItem(16, cremaMagma);
@@ -199,7 +199,7 @@ public class IngredientiPozioni implements Listener {
                 ChatColor.GRAY + "Ingrediente per pozioni",
                 ChatColor.GRAY + "di rigenerazione",
                 "",
-                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€1500"
+                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€" + String.format("%.0f", plugin.getConfigManager().getGhastTearPrice())
         ));
         lacrimaGhast.setItemMeta(metaLacrima);
         ingredienti.setItem(19, lacrimaGhast);
@@ -212,7 +212,7 @@ public class IngredientiPozioni implements Listener {
                 ChatColor.GRAY + "Prolunga la durata",
                 ChatColor.GRAY + "delle pozioni",
                 "",
-                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€300"
+                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€" + String.format("%.0f", plugin.getConfigManager().getRedstonePrice())
         ));
         pietraRossa.setItemMeta(metaPietraRossa);
         ingredienti.setItem(20, pietraRossa);
@@ -225,7 +225,7 @@ public class IngredientiPozioni implements Listener {
                 ChatColor.GRAY + "Trasforma le pozioni",
                 ChatColor.GRAY + "in pozioni splash",
                 "",
-                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€450"
+                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€" + String.format("%.0f", plugin.getConfigManager().getGunpowderPrice())
         ));
         polvereSparo.setItemMeta(metaPolvereSparo);
         ingredienti.setItem(21, polvereSparo);
@@ -238,7 +238,7 @@ public class IngredientiPozioni implements Listener {
                 ChatColor.GRAY + "Aumenta la potenza",
                 ChatColor.GRAY + "delle pozioni",
                 "",
-                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€550"
+                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€" + String.format("%.0f", plugin.getConfigManager().getGlowstoneDustPrice())
         ));
         pietrisco.setItemMeta(metaPietrisco);
         ingredienti.setItem(22, pietrisco);
@@ -251,7 +251,7 @@ public class IngredientiPozioni implements Listener {
                 ChatColor.GRAY + "Ingrediente raro per",
                 ChatColor.GRAY + "pozioni speciali",
                 "",
-                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€1200"
+                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€" + String.format("%.0f", plugin.getConfigManager().getEnderPearlPrice())
         ));
         perlaEnder.setItemMeta(metaPerla);
         ingredienti.setItem(23, perlaEnder);
@@ -264,7 +264,7 @@ public class IngredientiPozioni implements Listener {
                 ChatColor.GRAY + "Ingrediente per pozioni",
                 ChatColor.GRAY + "tramite comandi speciali",
                 "",
-                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€1000"
+                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€" + String.format("%.0f", plugin.getConfigManager().getNautilusShellPrice())
         ));
         concheliaNautilo.setItemMeta(metaConchiglia);
         ingredienti.setItem(24, concheliaNautilo);
@@ -277,7 +277,7 @@ public class IngredientiPozioni implements Listener {
                 ChatColor.GRAY + "Ingrediente per pozioni",
                 ChatColor.GRAY + "di caduta lenta",
                 "",
-                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€800"
+                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€" + String.format("%.0f", plugin.getConfigManager().getPhantomMembranePrice())
         ));
         membranaPhantom.setItemMeta(metaMembrana);
         ingredienti.setItem(25, membranaPhantom);
@@ -315,189 +315,206 @@ public class IngredientiPozioni implements Listener {
 
             switch (slot) {
                 case 2: // Boccetta d'Acqua
-                    if (econManager.checkMoney(p) >= 200) {
+                    double potionPrice = plugin.getConfigManager().getPotionPrice();
+                    if (econManager.checkMoney(p) >= potionPrice) {
                         p.getInventory().addItem(new ItemStack(Material.POTION));
-                        econManager.removeMoney(p, 200);
-                        p.sendMessage(ChatColor.GREEN + "Hai acquistato una Boccetta d'Acqua per €200!");
+                        econManager.removeMoney(p, potionPrice);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato una Boccetta d'Acqua per €" + String.format("%.0f", potionPrice) + "!");
                         openIngredientiPozioni(p);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €200");
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €" + String.format("%.0f", potionPrice));
                     }
                     break;
 
                 case 3: // Polvere di Blaze
-                    if (econManager.checkMoney(p) >= 400) {
+                    double blazePowderPrice = plugin.getConfigManager().getBlazePowderPrice();
+                    if (econManager.checkMoney(p) >= blazePowderPrice) {
                         p.getInventory().addItem(new ItemStack(Material.BLAZE_POWDER));
-                        econManager.removeMoney(p, 400);
-                        p.sendMessage(ChatColor.GREEN + "Hai acquistato Polvere di Blaze per €400!");
+                        econManager.removeMoney(p, blazePowderPrice);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato Polvere di Blaze per €" + String.format("%.0f", blazePowderPrice) + "!");
                         openIngredientiPozioni(p);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €400");
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €" + String.format("%.0f", blazePowderPrice));
                     }
                     break;
 
                 case 5: // Verruca del Nether
-                    if (econManager.checkMoney(p) >= 500) {
+                    double netherWartPrice = plugin.getConfigManager().getNetherWartPrice();
+                    if (econManager.checkMoney(p) >= netherWartPrice) {
                         p.getInventory().addItem(new ItemStack(Material.NETHER_WART));
-                        econManager.removeMoney(p, 500);
-                        p.sendMessage(ChatColor.GREEN + "Hai acquistato Verruca del Nether per €500!");
+                        econManager.removeMoney(p, netherWartPrice);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato Verruca del Nether per €" + String.format("%.0f", netherWartPrice) + "!");
                         openIngredientiPozioni(p);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €500");
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €" + String.format("%.0f", netherWartPrice));
                     }
                     break;
 
                 case 10: // Occhio di Ragno
-                    if (econManager.checkMoney(p) >= 350) {
+                    double spiderEyePrice = plugin.getConfigManager().getSpiderEyePrice();
+                    if (econManager.checkMoney(p) >= spiderEyePrice) {
                         p.getInventory().addItem(new ItemStack(Material.SPIDER_EYE));
-                        econManager.removeMoney(p, 350);
-                        p.sendMessage(ChatColor.GREEN + "Hai acquistato un Occhio di Ragno per €350!");
+                        econManager.removeMoney(p, spiderEyePrice);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato un Occhio di Ragno per €" + String.format("%.0f", spiderEyePrice) + "!");
                         openIngredientiPozioni(p);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €350");
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €" + String.format("%.0f", spiderEyePrice));
                     }
                     break;
 
                 case 11: // Occhio di Ragno Fermentato
-                    if (econManager.checkMoney(p) >= 600) {
+                    double fermentedSpiderEyePrice = plugin.getConfigManager().getFermentedSpiderEyePrice();
+                    if (econManager.checkMoney(p) >= fermentedSpiderEyePrice) {
                         p.getInventory().addItem(new ItemStack(Material.FERMENTED_SPIDER_EYE));
-                        econManager.removeMoney(p, 600);
-                        p.sendMessage(ChatColor.GREEN + "Hai acquistato un Occhio di Ragno Fermentato per €600!");
+                        econManager.removeMoney(p, fermentedSpiderEyePrice);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato un Occhio di Ragno Fermentato per €" + String.format("%.0f", fermentedSpiderEyePrice) + "!");
                         openIngredientiPozioni(p);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €600");
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €" + String.format("%.0f", fermentedSpiderEyePrice));
                     }
                     break;
 
                 case 12: // Zucchero
-                    if (econManager.checkMoney(p) >= 250) {
+                    double sugarPrice = plugin.getConfigManager().getSugarPrice();
+                    if (econManager.checkMoney(p) >= sugarPrice) {
                         p.getInventory().addItem(new ItemStack(Material.SUGAR));
-                        econManager.removeMoney(p, 250);
-                        p.sendMessage(ChatColor.GREEN + "Hai acquistato Zucchero per €250!");
+                        econManager.removeMoney(p, sugarPrice);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato Zucchero per €" + String.format("%.0f", sugarPrice) + "!");
                         openIngredientiPozioni(p);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €250");
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €" + String.format("%.0f", sugarPrice));
                     }
                     break;
 
                 case 13: // Melone Scintillante
-                    if (econManager.checkMoney(p) >= 800) {
+                    double glisteringMelonPrice = plugin.getConfigManager().getGlisteringMelonSlicePrice();
+                    if (econManager.checkMoney(p) >= glisteringMelonPrice) {
                         p.getInventory().addItem(new ItemStack(Material.GLISTERING_MELON_SLICE));
-                        econManager.removeMoney(p, 800);
-                        p.sendMessage(ChatColor.GREEN + "Hai acquistato un Melone Scintillante per €800!");
+                        econManager.removeMoney(p, glisteringMelonPrice);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato un Melone Scintillante per €" + String.format("%.0f", glisteringMelonPrice) + "!");
                         openIngredientiPozioni(p);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €800");
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €" + String.format("%.0f", glisteringMelonPrice));
                     }
                     break;
 
                 case 14: // Carota Dorata
-                    if (econManager.checkMoney(p) >= 700) {
+                    double goldenCarrotPrice = plugin.getConfigManager().getGoldenCarrotPrice();
+                    if (econManager.checkMoney(p) >= goldenCarrotPrice) {
                         p.getInventory().addItem(new ItemStack(Material.GOLDEN_CARROT));
-                        econManager.removeMoney(p, 700);
-                        p.sendMessage(ChatColor.GREEN + "Hai acquistato una Carota Dorata per €700!");
+                        econManager.removeMoney(p, goldenCarrotPrice);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato una Carota Dorata per €" + String.format("%.0f", goldenCarrotPrice) + "!");
                         openIngredientiPozioni(p);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €700");
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €" + String.format("%.0f", goldenCarrotPrice));
                     }
                     break;
 
                 case 15: // Pesce Palla
-                    if (econManager.checkMoney(p) >= 650) {
+                    double pufferfishPrice = plugin.getConfigManager().getPufferfishPrice();
+                    if (econManager.checkMoney(p) >= pufferfishPrice) {
                         p.getInventory().addItem(new ItemStack(Material.PUFFERFISH));
-                        econManager.removeMoney(p, 650);
-                        p.sendMessage(ChatColor.GREEN + "Hai acquistato un Pesce Palla per €650!");
+                        econManager.removeMoney(p, pufferfishPrice);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato un Pesce Palla per €" + String.format("%.0f", pufferfishPrice) + "!");
                         openIngredientiPozioni(p);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €650");
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €" + String.format("%.0f", pufferfishPrice));
                     }
                     break;
 
                 case 16: // Crema di Magma
-                    if (econManager.checkMoney(p) >= 900) {
+                    double magmaCreamPrice = plugin.getConfigManager().getMagmaCreamPrice();
+                    if (econManager.checkMoney(p) >= magmaCreamPrice) {
                         p.getInventory().addItem(new ItemStack(Material.MAGMA_CREAM));
-                        econManager.removeMoney(p, 900);
-                        p.sendMessage(ChatColor.GREEN + "Hai acquistato Crema di Magma per €900!");
+                        econManager.removeMoney(p, magmaCreamPrice);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato Crema di Magma per €" + String.format("%.0f", magmaCreamPrice) + "!");
                         openIngredientiPozioni(p);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €900");
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €" + String.format("%.0f", magmaCreamPrice));
                     }
                     break;
 
                 case 19: // Lacrima di Ghast
-                    if (econManager.checkMoney(p) >= 1500) {
+                    double ghastTearPrice = plugin.getConfigManager().getGhastTearPrice();
+                    if (econManager.checkMoney(p) >= ghastTearPrice) {
                         p.getInventory().addItem(new ItemStack(Material.GHAST_TEAR));
-                        econManager.removeMoney(p, 1500);
-                        p.sendMessage(ChatColor.GREEN + "Hai acquistato una Lacrima di Ghast per €1500!");
+                        econManager.removeMoney(p, ghastTearPrice);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato una Lacrima di Ghast per €" + String.format("%.0f", ghastTearPrice) + "!");
                         openIngredientiPozioni(p);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €1500");
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €" + String.format("%.0f", ghastTearPrice));
                     }
                     break;
 
                 case 20: // Pietra Rossa
-                    if (econManager.checkMoney(p) >= 300) {
+                    double redstonePrice = plugin.getConfigManager().getRedstonePrice();
+                    if (econManager.checkMoney(p) >= redstonePrice) {
                         p.getInventory().addItem(new ItemStack(Material.REDSTONE));
-                        econManager.removeMoney(p, 300);
-                        p.sendMessage(ChatColor.GREEN + "Hai acquistato Pietra Rossa per €300!");
+                        econManager.removeMoney(p, redstonePrice);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato Pietra Rossa per €" + String.format("%.0f", redstonePrice) + "!");
                         openIngredientiPozioni(p);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €300");
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €" + String.format("%.0f", redstonePrice));
                     }
                     break;
 
                 case 21: // Polvere da Sparo
-                    if (econManager.checkMoney(p) >= 450) {
+                    double gunpowderPrice = plugin.getConfigManager().getGunpowderPrice();
+                    if (econManager.checkMoney(p) >= gunpowderPrice) {
                         p.getInventory().addItem(new ItemStack(Material.GUNPOWDER));
-                        econManager.removeMoney(p, 450);
-                        p.sendMessage(ChatColor.GREEN + "Hai acquistato Polvere da Sparo per €450!");
+                        econManager.removeMoney(p, gunpowderPrice);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato Polvere da Sparo per €" + String.format("%.0f", gunpowderPrice) + "!");
                         openIngredientiPozioni(p);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €450");
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €" + String.format("%.0f", gunpowderPrice));
                     }
                     break;
 
                 case 22: // Pietrisco Luminoso
-                    if (econManager.checkMoney(p) >= 550) {
+                    double glowstoneDustPrice = plugin.getConfigManager().getGlowstoneDustPrice();
+                    if (econManager.checkMoney(p) >= glowstoneDustPrice) {
                         p.getInventory().addItem(new ItemStack(Material.GLOWSTONE_DUST));
-                        econManager.removeMoney(p, 550);
-                        p.sendMessage(ChatColor.GREEN + "Hai acquistato Pietrisco Luminoso per €550!");
+                        econManager.removeMoney(p, glowstoneDustPrice);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato Pietrisco Luminoso per €" + String.format("%.0f", glowstoneDustPrice) + "!");
                         openIngredientiPozioni(p);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €550");
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €" + String.format("%.0f", glowstoneDustPrice));
                     }
                     break;
 
                 case 23: // Perla di Ender
-                    if (econManager.checkMoney(p) >= 1200) {
+                    double enderPearlPrice = plugin.getConfigManager().getEnderPearlPrice();
+                    if (econManager.checkMoney(p) >= enderPearlPrice) {
                         p.getInventory().addItem(new ItemStack(Material.ENDER_PEARL));
-                        econManager.removeMoney(p, 1200);
-                        p.sendMessage(ChatColor.GREEN + "Hai acquistato una Perla di Ender per €1200!");
+                        econManager.removeMoney(p, enderPearlPrice);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato una Perla di Ender per €" + String.format("%.0f", enderPearlPrice) + "!");
                         openIngredientiPozioni(p);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €1200");
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €" + String.format("%.0f", enderPearlPrice));
                     }
                     break;
 
                 case 24: // Conchiglia di Nautilo
-                    if (econManager.checkMoney(p) >= 1000) {
+                    double nautilusShellPrice = plugin.getConfigManager().getNautilusShellPrice();
+                    if (econManager.checkMoney(p) >= nautilusShellPrice) {
                         p.getInventory().addItem(new ItemStack(Material.NAUTILUS_SHELL));
-                        econManager.removeMoney(p, 1000);
-                        p.sendMessage(ChatColor.GREEN + "Hai acquistato una Conchiglia di Nautilo per €1000!");
+                        econManager.removeMoney(p, nautilusShellPrice);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato una Conchiglia di Nautilo per €" + String.format("%.0f", nautilusShellPrice) + "!");
                         openIngredientiPozioni(p);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €1000");
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €" + String.format("%.0f", nautilusShellPrice));
                     }
                     break;
 
                 case 25: // Membrana di Phantom
-                    if (econManager.checkMoney(p) >= 800) {
+                    double phantomMembranePrice = plugin.getConfigManager().getPhantomMembranePrice();
+                    if (econManager.checkMoney(p) >= phantomMembranePrice) {
                         p.getInventory().addItem(new ItemStack(Material.PHANTOM_MEMBRANE));
-                        econManager.removeMoney(p, 800);
-                        p.sendMessage(ChatColor.GREEN + "Hai acquistato una Membrana di Phantom per €800!");
+                        econManager.removeMoney(p, phantomMembranePrice);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato una Membrana di Phantom per €" + String.format("%.0f", phantomMembranePrice) + "!");
                         openIngredientiPozioni(p);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €800");
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €" + String.format("%.0f", phantomMembranePrice));
                     }
                     break;
 

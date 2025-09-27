@@ -67,7 +67,7 @@ public class Pozioni implements Listener {
                         ChatColor.GRAY + "Aumenta il danno inflitto",
                         ChatColor.GRAY + "nei combattimenti",
                         "",
-                        ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€1400"
+                        ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€" + String.format("%.0f", plugin.getConfigManager().getStrengthPotionPrice())
                 )
         );
         pozioni.setItem(10, pozioneForza);
@@ -79,7 +79,7 @@ public class Pozioni implements Listener {
                         ChatColor.GRAY + "Aumenta la velocità di",
                         ChatColor.GRAY + "movimento del giocatore",
                         "",
-                        ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€1200"
+                        ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€" + String.format("%.0f", plugin.getConfigManager().getSpeedPotionPrice())
                 )
         );
         pozioni.setItem(11, pozioneVelocita);
@@ -91,7 +91,7 @@ public class Pozioni implements Listener {
                         ChatColor.GRAY + "Permette di saltare",
                         ChatColor.GRAY + "molto più in alto",
                         "",
-                        ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€1000"
+                        ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€" + String.format("%.0f", plugin.getConfigManager().getJumpBoostPotionPrice())
                 )
         );
         pozioni.setItem(12, pozioneSalto);
@@ -103,7 +103,7 @@ public class Pozioni implements Listener {
                         ChatColor.GRAY + "Riduce tutti i danni",
                         ChatColor.GRAY + "subiti dal giocatore",
                         "",
-                        ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€1800"
+                        ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€" + String.format("%.0f", plugin.getConfigManager().getResistancePotionPrice())
                 )
         );
         pozioni.setItem(13, pozioneResistenza);
@@ -115,12 +115,12 @@ public class Pozioni implements Listener {
                         ChatColor.GRAY + "Ripristina istantaneamente",
                         ChatColor.GRAY + "una parte della salute",
                         "",
-                        ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€1600"
+                        ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€" + String.format("%.0f", plugin.getConfigManager().getInstantHealthPotionPrice())
                 )
         );
         pozioni.setItem(14, pozioneCura);
 
-        // === POZIONI DIFENSIVE (NUOVE) ===
+        // === POZIONI DIFENSIVE ===
 
         // Pozione di Resistenza al Fuoco
         ItemStack pozioneResistenzaFuoco = creaPozione(Material.POTION, PotionEffectType.FIRE_RESISTANCE, 3600, 0,
@@ -129,7 +129,7 @@ public class Pozioni implements Listener {
                         ChatColor.GRAY + "Immunità completa",
                         ChatColor.GRAY + "al fuoco e alla lava",
                         "",
-                        ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€1500"
+                        ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€" + String.format("%.0f", plugin.getConfigManager().getFireResistancePotionPrice())
                 )
         );
         pozioni.setItem(15, pozioneResistenzaFuoco);
@@ -141,7 +141,7 @@ public class Pozioni implements Listener {
                         ChatColor.GRAY + "Aggiunge cuori temporanei",
                         ChatColor.GRAY + "per maggiore sopravvivenza",
                         "",
-                        ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€1700"
+                        ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€" + String.format("%.0f", plugin.getConfigManager().getAbsorptionPotionPrice())
                 )
         );
         pozioni.setItem(16, pozioneAssorbimento);
@@ -153,24 +153,24 @@ public class Pozioni implements Listener {
                         ChatColor.GRAY + "Permette di respirare",
                         ChatColor.GRAY + "sott'acqua senza problemi",
                         "",
-                        ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€1300"
+                        ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€" + String.format("%.0f", plugin.getConfigManager().getWaterBreathingPotionPrice())
                 )
         );
         pozioni.setItem(19, pozioneRespirazioneAcqua);
 
-        // Pozione di Caduta Lenta (NUOVA)
+        // Pozione di Caduta Lenta
         ItemStack pozioneCadutaLenta = creaPozione(Material.POTION, PotionEffectType.SLOW_FALLING, 1800, 0,
                 ChatColor.WHITE + "" + ChatColor.BOLD + "Pozione di Caduta Lenta",
                 Arrays.asList(
                         ChatColor.GRAY + "Riduce la velocità di caduta",
                         ChatColor.GRAY + "e previene danni da caduta",
                         "",
-                        ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€1100"
+                        ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€" + String.format("%.0f", plugin.getConfigManager().getSlowFallingPotionPrice())
                 )
         );
         pozioni.setItem(20, pozioneCadutaLenta);
 
-        // === POZIONI SPLASH (NUOVE) ===
+        // === POZIONI SPLASH ===
 
         // Pozione Splash di Cura Istantanea
         ItemStack splashCura = creaPozione(Material.SPLASH_POTION, PotionEffectType.INSTANT_HEALTH, 1, 0,
@@ -179,7 +179,7 @@ public class Pozioni implements Listener {
                         ChatColor.GRAY + "Cura istantanea ad area",
                         ChatColor.GRAY + "per te e i tuoi alleati",
                         "",
-                        ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€2000"
+                        ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€" + String.format("%.0f", plugin.getConfigManager().getSplashInstantHealthPotionPrice())
                 )
         );
         pozioni.setItem(21, splashCura);
@@ -191,7 +191,7 @@ public class Pozioni implements Listener {
                         ChatColor.GRAY + "Fornisce forza ad area",
                         ChatColor.GRAY + "per combattimenti di gruppo",
                         "",
-                        ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€1800"
+                        ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€" + String.format("%.0f", plugin.getConfigManager().getSplashStrengthPotionPrice())
                 )
         );
         pozioni.setItem(22, splashForza);
@@ -203,12 +203,12 @@ public class Pozioni implements Listener {
                         ChatColor.GRAY + "Aumenta la velocità",
                         ChatColor.GRAY + "di tutto il gruppo",
                         "",
-                        ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€1600"
+                        ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€" + String.format("%.0f", plugin.getConfigManager().getSplashSpeedPotionPrice())
                 )
         );
         pozioni.setItem(23, splashVelocita);
 
-        // === POZIONI NEGATIVE (NUOVE) ===
+        // === POZIONI NEGATIVE ===
 
         // Pozione di Debolezza
         ItemStack pozioneDebolezza = creaPozione(Material.POTION, PotionEffectType.WEAKNESS, 1800, 0,
@@ -217,7 +217,7 @@ public class Pozioni implements Listener {
                         ChatColor.GRAY + "Riduce il danno inflitto",
                         ChatColor.GRAY + "dai nemici colpiti",
                         "",
-                        ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€800"
+                        ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€" + String.format("%.0f", plugin.getConfigManager().getWeaknessPotionPrice())
                 )
         );
         pozioni.setItem(28, pozioneDebolezza);
@@ -229,7 +229,7 @@ public class Pozioni implements Listener {
                         ChatColor.GRAY + "Indebolisce i nemici",
                         ChatColor.GRAY + "in un'area",
                         "",
-                        ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€1200"
+                        ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€" + String.format("%.0f", plugin.getConfigManager().getSplashWeaknessPotionPrice())
                 )
         );
         pozioni.setItem(29, splashDebolezza);
@@ -241,7 +241,7 @@ public class Pozioni implements Listener {
                         ChatColor.GRAY + "Rallenta drasticamente",
                         ChatColor.GRAY + "i movimenti del bersaglio",
                         "",
-                        ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€900"
+                        ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€" + String.format("%.0f", plugin.getConfigManager().getSlownessPotionPrice())
                 )
         );
         pozioni.setItem(30, pozioneLentezza);
@@ -253,7 +253,7 @@ public class Pozioni implements Listener {
                         ChatColor.GRAY + "Rallenta i nemici",
                         ChatColor.GRAY + "in un'area",
                         "",
-                        ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€1300"
+                        ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€" + String.format("%.0f", plugin.getConfigManager().getSplashSlownessPotionPrice())
                 )
         );
         pozioni.setItem(31, splashLentezza);
@@ -301,242 +301,258 @@ public class Pozioni implements Listener {
 
             switch (slot) {
                 case 10: // Pozione di Forza
-                    if (econManager.checkMoney(p) >= 1400) {
+                    double strengthPrice = plugin.getConfigManager().getStrengthPotionPrice();
+                    if (econManager.checkMoney(p) >= strengthPrice) {
                         ItemStack pozioneForza = new ItemStack(Material.POTION);
                         PotionMeta meta = (PotionMeta) pozioneForza.getItemMeta();
                         meta.addCustomEffect(new PotionEffect(PotionEffectType.STRENGTH, 3600, 0), true);
                         pozioneForza.setItemMeta(meta);
                         p.getInventory().addItem(pozioneForza);
-                        econManager.removeMoney(p, 1400);
-                        p.sendMessage(ChatColor.GREEN + "Hai acquistato una Pozione di Forza per €1400!");
+                        econManager.removeMoney(p, strengthPrice);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato una Pozione di Forza per €" + String.format("%.0f", strengthPrice) + "!");
                         openPozioni(p);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €1400");
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €" + String.format("%.0f", strengthPrice));
                     }
                     break;
 
                 case 11: // Pozione di Velocità
-                    if (econManager.checkMoney(p) >= 1200) {
+                    double speedPrice = plugin.getConfigManager().getSpeedPotionPrice();
+                    if (econManager.checkMoney(p) >= speedPrice) {
                         ItemStack pozioneVelocita = new ItemStack(Material.POTION);
                         PotionMeta meta = (PotionMeta) pozioneVelocita.getItemMeta();
                         meta.addCustomEffect(new PotionEffect(PotionEffectType.SPEED, 3600, 0), true);
                         pozioneVelocita.setItemMeta(meta);
                         p.getInventory().addItem(pozioneVelocita);
-                        econManager.removeMoney(p, 1200);
-                        p.sendMessage(ChatColor.GREEN + "Hai acquistato una Pozione di Velocità per €1200!");
+                        econManager.removeMoney(p, speedPrice);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato una Pozione di Velocità per €" + String.format("%.0f", speedPrice) + "!");
                         openPozioni(p);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €1200");
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €" + String.format("%.0f", speedPrice));
                     }
                     break;
 
                 case 12: // Pozione di Salto in Alto
-                    if (econManager.checkMoney(p) >= 1000) {
+                    double jumpBoostPrice = plugin.getConfigManager().getJumpBoostPotionPrice();
+                    if (econManager.checkMoney(p) >= jumpBoostPrice) {
                         ItemStack pozioneSalto = new ItemStack(Material.POTION);
                         PotionMeta meta = (PotionMeta) pozioneSalto.getItemMeta();
                         meta.addCustomEffect(new PotionEffect(PotionEffectType.JUMP_BOOST, 3600, 0), true);
                         pozioneSalto.setItemMeta(meta);
                         p.getInventory().addItem(pozioneSalto);
-                        econManager.removeMoney(p, 1000);
-                        p.sendMessage(ChatColor.GREEN + "Hai acquistato una Pozione di Salto in Alto per €1000!");
+                        econManager.removeMoney(p, jumpBoostPrice);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato una Pozione di Salto in Alto per €" + String.format("%.0f", jumpBoostPrice) + "!");
                         openPozioni(p);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €1000");
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €" + String.format("%.0f", jumpBoostPrice));
                     }
                     break;
 
                 case 13: // Pozione di Resistenza
-                    if (econManager.checkMoney(p) >= 1800) {
+                    double resistancePrice = plugin.getConfigManager().getResistancePotionPrice();
+                    if (econManager.checkMoney(p) >= resistancePrice) {
                         ItemStack pozioneResistenza = new ItemStack(Material.POTION);
                         PotionMeta meta = (PotionMeta) pozioneResistenza.getItemMeta();
                         meta.addCustomEffect(new PotionEffect(PotionEffectType.RESISTANCE, 3600, 0), true);
                         pozioneResistenza.setItemMeta(meta);
                         p.getInventory().addItem(pozioneResistenza);
-                        econManager.removeMoney(p, 1800);
-                        p.sendMessage(ChatColor.GREEN + "Hai acquistato una Pozione di Resistenza per €1800!");
+                        econManager.removeMoney(p, resistancePrice);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato una Pozione di Resistenza per €" + String.format("%.0f", resistancePrice) + "!");
                         openPozioni(p);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €1800");
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €" + String.format("%.0f", resistancePrice));
                     }
                     break;
 
                 case 14: // Pozione di Cura Istantanea
-                    if (econManager.checkMoney(p) >= 1600) {
+                    double instantHealthPrice = plugin.getConfigManager().getInstantHealthPotionPrice();
+                    if (econManager.checkMoney(p) >= instantHealthPrice) {
                         ItemStack pozioneCura = new ItemStack(Material.POTION);
                         PotionMeta meta = (PotionMeta) pozioneCura.getItemMeta();
                         meta.addCustomEffect(new PotionEffect(PotionEffectType.INSTANT_HEALTH, 1, 0), true);
                         pozioneCura.setItemMeta(meta);
                         p.getInventory().addItem(pozioneCura);
-                        econManager.removeMoney(p, 1600);
-                        p.sendMessage(ChatColor.GREEN + "Hai acquistato una Pozione di Cura Istantanea per €1600!");
+                        econManager.removeMoney(p, instantHealthPrice);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato una Pozione di Cura Istantanea per €" + String.format("%.0f", instantHealthPrice) + "!");
                         openPozioni(p);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €1600");
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €" + String.format("%.0f", instantHealthPrice));
                     }
                     break;
 
-                case 15: // Pozione di Resistenza al Fuoco (NUOVA)
-                    if (econManager.checkMoney(p) >= 1500) {
+                case 15: // Pozione di Resistenza al Fuoco
+                    double fireResistancePrice = plugin.getConfigManager().getFireResistancePotionPrice();
+                    if (econManager.checkMoney(p) >= fireResistancePrice) {
                         ItemStack pozioneResistenzaFuoco = new ItemStack(Material.POTION);
                         PotionMeta meta = (PotionMeta) pozioneResistenzaFuoco.getItemMeta();
                         meta.addCustomEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, 3600, 0), true);
                         pozioneResistenzaFuoco.setItemMeta(meta);
                         p.getInventory().addItem(pozioneResistenzaFuoco);
-                        econManager.removeMoney(p, 1500);
-                        p.sendMessage(ChatColor.GREEN + "Hai acquistato una Pozione di Resistenza al Fuoco per €1500!");
+                        econManager.removeMoney(p, fireResistancePrice);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato una Pozione di Resistenza al Fuoco per €" + String.format("%.0f", fireResistancePrice) + "!");
                         openPozioni(p);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €1500");
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €" + String.format("%.0f", fireResistancePrice));
                     }
                     break;
 
-                case 16: // Pozione di Assorbimento (NUOVA)
-                    if (econManager.checkMoney(p) >= 1700) {
+                case 16: // Pozione di Assorbimento
+                    double absorptionPrice = plugin.getConfigManager().getAbsorptionPotionPrice();
+                    if (econManager.checkMoney(p) >= absorptionPrice) {
                         ItemStack pozioneAssorbimento = new ItemStack(Material.POTION);
                         PotionMeta meta = (PotionMeta) pozioneAssorbimento.getItemMeta();
                         meta.addCustomEffect(new PotionEffect(PotionEffectType.ABSORPTION, 2400, 0), true);
                         pozioneAssorbimento.setItemMeta(meta);
                         p.getInventory().addItem(pozioneAssorbimento);
-                        econManager.removeMoney(p, 1700);
-                        p.sendMessage(ChatColor.GREEN + "Hai acquistato una Pozione di Assorbimento per €1700!");
+                        econManager.removeMoney(p, absorptionPrice);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato una Pozione di Assorbimento per €" + String.format("%.0f", absorptionPrice) + "!");
                         openPozioni(p);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €1700");
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €" + String.format("%.0f", absorptionPrice));
                     }
                     break;
 
-                case 19: // Pozione di Respirazione Acquatica (NUOVA)
-                    if (econManager.checkMoney(p) >= 1300) {
+                case 19: // Pozione di Respirazione Acquatica
+                    double waterBreathingPrice = plugin.getConfigManager().getWaterBreathingPotionPrice();
+                    if (econManager.checkMoney(p) >= waterBreathingPrice) {
                         ItemStack pozioneRespirazioneAcqua = new ItemStack(Material.POTION);
                         PotionMeta meta = (PotionMeta) pozioneRespirazioneAcqua.getItemMeta();
                         meta.addCustomEffect(new PotionEffect(PotionEffectType.WATER_BREATHING, 3600, 0), true);
                         pozioneRespirazioneAcqua.setItemMeta(meta);
                         p.getInventory().addItem(pozioneRespirazioneAcqua);
-                        econManager.removeMoney(p, 1300);
-                        p.sendMessage(ChatColor.GREEN + "Hai acquistato una Pozione di Respirazione Acquatica per €1300!");
+                        econManager.removeMoney(p, waterBreathingPrice);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato una Pozione di Respirazione Acquatica per €" + String.format("%.0f", waterBreathingPrice) + "!");
                         openPozioni(p);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €1300");
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €" + String.format("%.0f", waterBreathingPrice));
                     }
                     break;
 
-                case 20: // Pozione di Caduta Lenta (NUOVA)
-                    if (econManager.checkMoney(p) >= 1100) {
+                case 20: // Pozione di Caduta Lenta
+                    double slowFallingPrice = plugin.getConfigManager().getSlowFallingPotionPrice();
+                    if (econManager.checkMoney(p) >= slowFallingPrice) {
                         ItemStack pozioneCadutaLenta = new ItemStack(Material.POTION);
                         PotionMeta meta = (PotionMeta) pozioneCadutaLenta.getItemMeta();
                         meta.addCustomEffect(new PotionEffect(PotionEffectType.SLOW_FALLING, 1800, 0), true);
                         pozioneCadutaLenta.setItemMeta(meta);
                         p.getInventory().addItem(pozioneCadutaLenta);
-                        econManager.removeMoney(p, 1100);
-                        p.sendMessage(ChatColor.GREEN + "Hai acquistato una Pozione di Caduta Lenta per €1100!");
+                        econManager.removeMoney(p, slowFallingPrice);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato una Pozione di Caduta Lenta per €" + String.format("%.0f", slowFallingPrice) + "!");
                         openPozioni(p);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €1100");
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €" + String.format("%.0f", slowFallingPrice));
                     }
                     break;
 
-                case 21: // Pozione Splash di Cura (NUOVA)
-                    if (econManager.checkMoney(p) >= 2000) {
+                case 21: // Pozione Splash di Cura
+                    double splashInstantHealthPrice = plugin.getConfigManager().getSplashInstantHealthPotionPrice();
+                    if (econManager.checkMoney(p) >= splashInstantHealthPrice) {
                         ItemStack splashCura = new ItemStack(Material.SPLASH_POTION);
                         PotionMeta meta = (PotionMeta) splashCura.getItemMeta();
                         meta.addCustomEffect(new PotionEffect(PotionEffectType.INSTANT_HEALTH, 1, 0), true);
                         splashCura.setItemMeta(meta);
                         p.getInventory().addItem(splashCura);
-                        econManager.removeMoney(p, 2000);
-                        p.sendMessage(ChatColor.GREEN + "Hai acquistato una Pozione Splash di Cura per €2000!");
+                        econManager.removeMoney(p, splashInstantHealthPrice);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato una Pozione Splash di Cura per €" + String.format("%.0f", splashInstantHealthPrice) + "!");
                         openPozioni(p);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €2000");
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €" + String.format("%.0f", splashInstantHealthPrice));
                     }
                     break;
 
-                case 22: // Pozione Splash di Forza (NUOVA)
-                    if (econManager.checkMoney(p) >= 1800) {
+                case 22: // Pozione Splash di Forza
+                    double splashStrengthPrice = plugin.getConfigManager().getSplashStrengthPotionPrice();
+                    if (econManager.checkMoney(p) >= splashStrengthPrice) {
                         ItemStack splashForza = new ItemStack(Material.SPLASH_POTION);
                         PotionMeta meta = (PotionMeta) splashForza.getItemMeta();
                         meta.addCustomEffect(new PotionEffect(PotionEffectType.STRENGTH, 2700, 0), true);
                         splashForza.setItemMeta(meta);
                         p.getInventory().addItem(splashForza);
-                        econManager.removeMoney(p, 1800);
-                        p.sendMessage(ChatColor.GREEN + "Hai acquistato una Pozione Splash di Forza per €1800!");
+                        econManager.removeMoney(p, splashStrengthPrice);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato una Pozione Splash di Forza per €" + String.format("%.0f", splashStrengthPrice) + "!");
                         openPozioni(p);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €1800");
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €" + String.format("%.0f", splashStrengthPrice));
                     }
                     break;
 
-                case 23: // Pozione Splash di Velocità (NUOVA)
-                    if (econManager.checkMoney(p) >= 1600) {
+                case 23: // Pozione Splash di Velocità
+                    double splashSpeedPrice = plugin.getConfigManager().getSplashSpeedPotionPrice();
+                    if (econManager.checkMoney(p) >= splashSpeedPrice) {
                         ItemStack splashVelocita = new ItemStack(Material.SPLASH_POTION);
                         PotionMeta meta = (PotionMeta) splashVelocita.getItemMeta();
                         meta.addCustomEffect(new PotionEffect(PotionEffectType.SPEED, 2700, 0), true);
                         splashVelocita.setItemMeta(meta);
                         p.getInventory().addItem(splashVelocita);
-                        econManager.removeMoney(p, 1600);
-                        p.sendMessage(ChatColor.GREEN + "Hai acquistato una Pozione Splash di Velocità per €1600!");
+                        econManager.removeMoney(p, splashSpeedPrice);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato una Pozione Splash di Velocità per €" + String.format("%.0f", splashSpeedPrice) + "!");
                         openPozioni(p);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €1600");
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €" + String.format("%.0f", splashSpeedPrice));
                     }
                     break;
 
-                case 28: // Pozione di Debolezza (NUOVA)
-                    if (econManager.checkMoney(p) >= 800) {
+                case 28: // Pozione di Debolezza
+                    double weaknessPrice = plugin.getConfigManager().getWeaknessPotionPrice();
+                    if (econManager.checkMoney(p) >= weaknessPrice) {
                         ItemStack pozioneDebolezza = new ItemStack(Material.POTION);
                         PotionMeta meta = (PotionMeta) pozioneDebolezza.getItemMeta();
                         meta.addCustomEffect(new PotionEffect(PotionEffectType.WEAKNESS, 1800, 0), true);
                         pozioneDebolezza.setItemMeta(meta);
                         p.getInventory().addItem(pozioneDebolezza);
-                        econManager.removeMoney(p, 800);
-                        p.sendMessage(ChatColor.GREEN + "Hai acquistato una Pozione di Debolezza per €800!");
+                        econManager.removeMoney(p, weaknessPrice);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato una Pozione di Debolezza per €" + String.format("%.0f", weaknessPrice) + "!");
                         openPozioni(p);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €800");
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €" + String.format("%.0f", weaknessPrice));
                     }
                     break;
 
-                case 29: // Pozione Splash di Debolezza (NUOVA)
-                    if (econManager.checkMoney(p) >= 1200) {
+                case 29: // Pozione Splash di Debolezza
+                    double splashWeaknessPrice = plugin.getConfigManager().getSplashWeaknessPotionPrice();
+                    if (econManager.checkMoney(p) >= splashWeaknessPrice) {
                         ItemStack splashDebolezza = new ItemStack(Material.SPLASH_POTION);
                         PotionMeta meta = (PotionMeta) splashDebolezza.getItemMeta();
                         meta.addCustomEffect(new PotionEffect(PotionEffectType.WEAKNESS, 1350, 0), true);
                         splashDebolezza.setItemMeta(meta);
                         p.getInventory().addItem(splashDebolezza);
-                        econManager.removeMoney(p, 1200);
-                        p.sendMessage(ChatColor.GREEN + "Hai acquistato una Pozione Splash di Debolezza per €1200!");
+                        econManager.removeMoney(p, splashWeaknessPrice);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato una Pozione Splash di Debolezza per €" + String.format("%.0f", splashWeaknessPrice) + "!");
                         openPozioni(p);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €1200");
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €" + String.format("%.0f", splashWeaknessPrice));
                     }
                     break;
 
-                case 30: // Pozione di Lentezza (NUOVA)
-                    if (econManager.checkMoney(p) >= 900) {
+                case 30: // Pozione di Lentezza
+                    double slownessPrice = plugin.getConfigManager().getSlownessPotionPrice();
+                    if (econManager.checkMoney(p) >= slownessPrice) {
                         ItemStack pozioneLentezza = new ItemStack(Material.POTION);
                         PotionMeta meta = (PotionMeta) pozioneLentezza.getItemMeta();
                         meta.addCustomEffect(new PotionEffect(PotionEffectType.SLOWNESS, 1800, 0), true);
                         pozioneLentezza.setItemMeta(meta);
                         p.getInventory().addItem(pozioneLentezza);
-                        econManager.removeMoney(p, 900);
-                        p.sendMessage(ChatColor.GREEN + "Hai acquistato una Pozione di Lentezza per €900!");
+                        econManager.removeMoney(p, slownessPrice);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato una Pozione di Lentezza per €" + String.format("%.0f", slownessPrice) + "!");
                         openPozioni(p);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €900");
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €" + String.format("%.0f", slownessPrice));
                     }
                     break;
 
-                case 31: // Pozione Splash di Lentezza (NUOVA)
-                    if (econManager.checkMoney(p) >= 1300) {
+                case 31: // Pozione Splash di Lentezza
+                    double splashSlownessPrice = plugin.getConfigManager().getSplashSlownessPotionPrice();
+                    if (econManager.checkMoney(p) >= splashSlownessPrice) {
                         ItemStack splashLentezza = new ItemStack(Material.SPLASH_POTION);
                         PotionMeta meta = (PotionMeta) splashLentezza.getItemMeta();
                         meta.addCustomEffect(new PotionEffect(PotionEffectType.SLOWNESS, 1350, 0), true);
                         splashLentezza.setItemMeta(meta);
                         p.getInventory().addItem(splashLentezza);
-                        econManager.removeMoney(p, 1300);
-                        p.sendMessage(ChatColor.GREEN + "Hai acquistato una Pozione Splash di Lentezza per €1300!");
+                        econManager.removeMoney(p, splashSlownessPrice);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato una Pozione Splash di Lentezza per €" + String.format("%.0f", splashSlownessPrice) + "!");
                         openPozioni(p);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €1300");
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €" + String.format("%.0f", splashSlownessPrice));
                     }
                     break;
 

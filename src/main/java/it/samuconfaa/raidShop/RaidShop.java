@@ -2,6 +2,7 @@ package it.samuconfaa.raidShop;
 
 import it.samuconfaa.raidShop.commands.FixCommand;
 import it.samuconfaa.raidShop.commands.NPCCommand;
+import it.samuconfaa.raidShop.commands.ReloadCommand;
 import it.samuconfaa.raidShop.commands.ShopCommand;
 import it.samuconfaa.raidShop.fixGUI.FixGui;
 import it.samuconfaa.raidShop.managers.ConfigManager;
@@ -63,6 +64,7 @@ public final class RaidShop extends JavaPlugin {
         getCommand("shopraid").setExecutor(new ShopCommand(this, shop));
         getCommand("setnpcshop").setExecutor(new NPCCommand(this, shopNPC));
         getCommand("fix").setExecutor(new FixCommand(this, fixGui));
+        getCommand("raidshop").setExecutor(new ReloadCommand(this)); // NUOVO COMANDO
 
         // Registra gli event listeners
         Bukkit.getPluginManager().registerEvents(generale, this);
@@ -77,6 +79,7 @@ public final class RaidShop extends JavaPlugin {
         getLogger().info("RaidShop è stato abilitato con successo!");
         getLogger().info("Sezioni disponibili: Generale, Pozioni, Incantesimi, Armature, Ingredienti Pozioni");
         getLogger().info("Fix GUI abilitata! Usa /fix per riparare gli oggetti");
+        getLogger().info("Usa /raidshop reload per ricaricare la configurazione");
     }
 
     @Override

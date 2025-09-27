@@ -8,7 +8,6 @@ import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
-import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
@@ -37,7 +36,7 @@ public class Libri implements Listener {
         Inventory libri = Bukkit.createInventory(p, 54, plugin.getConfigManager().getEnchantName());
 
         // Decorazioni - Vetri colorati per i bordi
-        ItemStack border = new ItemStack(Material.PURPLE_STAINED_GLASS_PANE, 1, (short) 11); // Blu
+        ItemStack border = new ItemStack(Material.PURPLE_STAINED_GLASS_PANE, 1, (short) 11);
         ItemMeta borderMeta = border.getItemMeta();
         borderMeta.setDisplayName(" ");
         border.setItemMeta(borderMeta);
@@ -49,7 +48,7 @@ public class Libri implements Listener {
         }
 
         // Decorazioni laterali viola
-        ItemStack purpleGlass = new ItemStack(Material.PURPLE_STAINED_GLASS_PANE, 1, (short) 10); // Viola
+        ItemStack purpleGlass = new ItemStack(Material.PURPLE_STAINED_GLASS_PANE, 1, (short) 10);
         ItemMeta purpleMeta = purpleGlass.getItemMeta();
         purpleMeta.setDisplayName(" ");
         purpleGlass.setItemMeta(purpleMeta);
@@ -58,7 +57,7 @@ public class Libri implements Listener {
         libri.setItem(27, purpleGlass);
         libri.setItem(35, purpleGlass);
 
-        // === LIBRI INCANTATI ORIGINALI ===
+        // === LIBRI INCANTATI ===
 
         // Protezione I
         ItemStack protezione = new ItemStack(Material.ENCHANTED_BOOK);
@@ -68,7 +67,7 @@ public class Libri implements Listener {
                 ChatColor.GRAY + "Riduce i danni subiti",
                 ChatColor.GRAY + "da attacchi fisici",
                 "",
-                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€1800"
+                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€" + String.format("%.0f", plugin.getConfigManager().getProtectionBookPrice())
         ));
         protezione.setItemMeta(metaProtezione);
         libri.setItem(10, protezione);
@@ -81,7 +80,7 @@ public class Libri implements Listener {
                 ChatColor.GRAY + "Aumenta il danno inflitto",
                 ChatColor.GRAY + "dalle armi corpo a corpo",
                 "",
-                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€1500"
+                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€" + String.format("%.0f", plugin.getConfigManager().getSharpnessBookPrice())
         ));
         sharpness.setItemMeta(metaSharpness);
         libri.setItem(11, sharpness);
@@ -94,7 +93,7 @@ public class Libri implements Listener {
                 ChatColor.GRAY + "Riduce la perdita di",
                 ChatColor.GRAY + "durabilità degli oggetti",
                 "",
-                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€2200"
+                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€" + String.format("%.0f", plugin.getConfigManager().getUnbreakingBookPrice())
         ));
         unbreaking.setItemMeta(metaUnbreaking);
         libri.setItem(12, unbreaking);
@@ -107,14 +106,12 @@ public class Libri implements Listener {
                 ChatColor.GRAY + "Aumenta il danno inflitto",
                 ChatColor.GRAY + "dalle frecce dell'arco",
                 "",
-                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€1600"
+                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€" + String.format("%.0f", plugin.getConfigManager().getPowerBookPrice())
         ));
         power.setItemMeta(metaPower);
         libri.setItem(13, power);
 
-        // === NUOVI LIBRI INCANTATI ===
-
-        // Sweeping Edge I (NUOVO)
+        // Sweeping Edge I
         ItemStack sweepingEdge = new ItemStack(Material.ENCHANTED_BOOK);
         ItemMeta metaSweepingEdge = sweepingEdge.getItemMeta();
         metaSweepingEdge.setDisplayName(ChatColor.GOLD + "" + ChatColor.BOLD + "Libro di Lama Falciante I");
@@ -122,12 +119,12 @@ public class Libri implements Listener {
                 ChatColor.GRAY + "Aumenta i danni degli",
                 ChatColor.GRAY + "attacchi ad area delle spade",
                 "",
-                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€1700"
+                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€" + String.format("%.0f", plugin.getConfigManager().getSweepingEdgeBookPrice())
         ));
         sweepingEdge.setItemMeta(metaSweepingEdge);
         libri.setItem(14, sweepingEdge);
 
-        // Aqua Affinity I (NUOVO)
+        // Aqua Affinity I
         ItemStack aquaAffinity = new ItemStack(Material.ENCHANTED_BOOK);
         ItemMeta metaAquaAffinity = aquaAffinity.getItemMeta();
         metaAquaAffinity.setDisplayName(ChatColor.AQUA + "" + ChatColor.BOLD + "Libro di Affinità Acquatica I");
@@ -135,12 +132,12 @@ public class Libri implements Listener {
                 ChatColor.GRAY + "Permette di scavare alla",
                 ChatColor.GRAY + "stessa velocità sott'acqua",
                 "",
-                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€1400"
+                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€" + String.format("%.0f", plugin.getConfigManager().getAquaAffinityBookPrice())
         ));
         aquaAffinity.setItemMeta(metaAquaAffinity);
         libri.setItem(15, aquaAffinity);
 
-        // Respiration I (NUOVO)
+        // Respiration I
         ItemStack respiration = new ItemStack(Material.ENCHANTED_BOOK);
         ItemMeta metaRespiration = respiration.getItemMeta();
         metaRespiration.setDisplayName(ChatColor.BLUE + "" + ChatColor.BOLD + "Libro di Respirazione I");
@@ -148,12 +145,12 @@ public class Libri implements Listener {
                 ChatColor.GRAY + "Prolunga il tempo di",
                 ChatColor.GRAY + "respirazione sott'acqua",
                 "",
-                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€1300"
+                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€" + String.format("%.0f", plugin.getConfigManager().getRespirationBookPrice())
         ));
         respiration.setItemMeta(metaRespiration);
         libri.setItem(16, respiration);
 
-        // Punch I (NUOVO)
+        // Punch I
         ItemStack punch = new ItemStack(Material.ENCHANTED_BOOK);
         ItemMeta metaPunch = punch.getItemMeta();
         metaPunch.setDisplayName(ChatColor.YELLOW + "" + ChatColor.BOLD + "Libro di Spinta I");
@@ -161,12 +158,12 @@ public class Libri implements Listener {
                 ChatColor.GRAY + "Le frecce respingono",
                 ChatColor.GRAY + "i nemici colpiti",
                 "",
-                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€1500"
+                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€" + String.format("%.0f", plugin.getConfigManager().getPunchBookPrice())
         ));
         punch.setItemMeta(metaPunch);
         libri.setItem(19, punch);
 
-        // Flame I (NUOVO)
+        // Flame I
         ItemStack flame = new ItemStack(Material.ENCHANTED_BOOK);
         ItemMeta metaFlame = flame.getItemMeta();
         metaFlame.setDisplayName(ChatColor.RED + "" + ChatColor.BOLD + "Libro di Fiamma I");
@@ -174,7 +171,7 @@ public class Libri implements Listener {
                 ChatColor.GRAY + "Le frecce incendiano",
                 ChatColor.GRAY + "i nemici colpiti",
                 "",
-                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€1800"
+                ChatColor.GOLD + "Prezzo: " + ChatColor.GREEN + "€" + String.format("%.0f", plugin.getConfigManager().getFlameBookPrice())
         ));
         flame.setItemMeta(metaFlame);
         libri.setItem(20, flame);
@@ -212,137 +209,146 @@ public class Libri implements Listener {
 
             switch (slot) {
                 case 10: // Protezione I
-                    if (econManager.checkMoney(p) >= 1800) {
+                    double protectionPrice = plugin.getConfigManager().getProtectionBookPrice();
+                    if (econManager.checkMoney(p) >= protectionPrice) {
                         ItemStack protezione = new ItemStack(Material.ENCHANTED_BOOK);
                         EnchantmentStorageMeta meta = (EnchantmentStorageMeta) protezione.getItemMeta();
                         meta.addStoredEnchant(Enchantment.PROTECTION, 1, true);
                         protezione.setItemMeta(meta);
                         p.getInventory().addItem(protezione);
-                        econManager.removeMoney(p, 1800);
-                        p.sendMessage(ChatColor.GREEN + "Hai acquistato un Libro di Protezione I per €1800!");
+                        econManager.removeMoney(p, protectionPrice);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato un Libro di Protezione I per €" + String.format("%.0f", protectionPrice) + "!");
                         openLibri(p);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €1800");
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €" + String.format("%.0f", protectionPrice));
                     }
                     break;
 
                 case 11: // Sharpness I
-                    if (econManager.checkMoney(p) >= 1500) {
+                    double sharpnessPrice = plugin.getConfigManager().getSharpnessBookPrice();
+                    if (econManager.checkMoney(p) >= sharpnessPrice) {
                         ItemStack sharpness = new ItemStack(Material.ENCHANTED_BOOK);
                         EnchantmentStorageMeta meta = (EnchantmentStorageMeta) sharpness.getItemMeta();
                         meta.addStoredEnchant(Enchantment.SHARPNESS, 1, true);
                         sharpness.setItemMeta(meta);
                         p.getInventory().addItem(sharpness);
-                        econManager.removeMoney(p, 1500);
-                        p.sendMessage(ChatColor.GREEN + "Hai acquistato un Libro di Affilatezza I per €1500!");
+                        econManager.removeMoney(p, sharpnessPrice);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato un Libro di Affilatezza I per €" + String.format("%.0f", sharpnessPrice) + "!");
                         openLibri(p);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €1500");
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €" + String.format("%.0f", sharpnessPrice));
                     }
                     break;
 
                 case 12: // Indistruttibilità I
-                    if (econManager.checkMoney(p) >= 2200) {
+                    double unbreakingPrice = plugin.getConfigManager().getUnbreakingBookPrice();
+                    if (econManager.checkMoney(p) >= unbreakingPrice) {
                         ItemStack unbreaking = new ItemStack(Material.ENCHANTED_BOOK);
                         EnchantmentStorageMeta meta = (EnchantmentStorageMeta) unbreaking.getItemMeta();
                         meta.addStoredEnchant(Enchantment.UNBREAKING, 1, true);
                         unbreaking.setItemMeta(meta);
                         p.getInventory().addItem(unbreaking);
-                        econManager.removeMoney(p, 2200);
-                        p.sendMessage(ChatColor.GREEN + "Hai acquistato un Libro di Indistruttibilità I per €2200!");
+                        econManager.removeMoney(p, unbreakingPrice);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato un Libro di Indistruttibilità I per €" + String.format("%.0f", unbreakingPrice) + "!");
                         openLibri(p);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €2200");
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €" + String.format("%.0f", unbreakingPrice));
                     }
                     break;
 
                 case 13: // Potenza I
-                    if (econManager.checkMoney(p) >= 1600) {
+                    double powerPrice = plugin.getConfigManager().getPowerBookPrice();
+                    if (econManager.checkMoney(p) >= powerPrice) {
                         ItemStack power = new ItemStack(Material.ENCHANTED_BOOK);
                         EnchantmentStorageMeta meta = (EnchantmentStorageMeta) power.getItemMeta();
                         meta.addStoredEnchant(Enchantment.POWER, 1, true);
                         power.setItemMeta(meta);
                         p.getInventory().addItem(power);
-                        econManager.removeMoney(p, 1600);
-                        p.sendMessage(ChatColor.GREEN + "Hai acquistato un Libro di Potenza I per €1600!");
+                        econManager.removeMoney(p, powerPrice);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato un Libro di Potenza I per €" + String.format("%.0f", powerPrice) + "!");
                         openLibri(p);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €1600");
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €" + String.format("%.0f", powerPrice));
                     }
                     break;
 
-                case 14: // Sweeping Edge I (NUOVO)
-                    if (econManager.checkMoney(p) >= 1700) {
+                case 14: // Sweeping Edge I
+                    double sweepingEdgePrice = plugin.getConfigManager().getSweepingEdgeBookPrice();
+                    if (econManager.checkMoney(p) >= sweepingEdgePrice) {
                         ItemStack sweepingEdge = new ItemStack(Material.ENCHANTED_BOOK);
                         EnchantmentStorageMeta meta = (EnchantmentStorageMeta) sweepingEdge.getItemMeta();
                         meta.addStoredEnchant(Enchantment.SWEEPING_EDGE, 1, true);
                         sweepingEdge.setItemMeta(meta);
                         p.getInventory().addItem(sweepingEdge);
-                        econManager.removeMoney(p, 1700);
-                        p.sendMessage(ChatColor.GREEN + "Hai acquistato un Libro di Lama Falciante I per €1700!");
+                        econManager.removeMoney(p, sweepingEdgePrice);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato un Libro di Lama Falciante I per €" + String.format("%.0f", sweepingEdgePrice) + "!");
                         openLibri(p);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €1700");
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €" + String.format("%.0f", sweepingEdgePrice));
                     }
                     break;
 
-                case 15: // Aqua Affinity I (NUOVO)
-                    if (econManager.checkMoney(p) >= 1400) {
+                case 15: // Aqua Affinity I
+                    double aquaAffinityPrice = plugin.getConfigManager().getAquaAffinityBookPrice();
+                    if (econManager.checkMoney(p) >= aquaAffinityPrice) {
                         ItemStack aquaAffinity = new ItemStack(Material.ENCHANTED_BOOK);
                         EnchantmentStorageMeta meta = (EnchantmentStorageMeta) aquaAffinity.getItemMeta();
                         meta.addStoredEnchant(Enchantment.AQUA_AFFINITY, 1, true);
                         aquaAffinity.setItemMeta(meta);
                         p.getInventory().addItem(aquaAffinity);
-                        econManager.removeMoney(p, 1400);
-                        p.sendMessage(ChatColor.GREEN + "Hai acquistato un Libro di Affinità Acquatica I per €1400!");
+                        econManager.removeMoney(p, aquaAffinityPrice);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato un Libro di Affinità Acquatica I per €" + String.format("%.0f", aquaAffinityPrice) + "!");
                         openLibri(p);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €1400");
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €" + String.format("%.0f", aquaAffinityPrice));
                     }
                     break;
 
-                case 16: // Respiration I (NUOVO)
-                    if (econManager.checkMoney(p) >= 1300) {
+                case 16: // Respiration I
+                    double respirationPrice = plugin.getConfigManager().getRespirationBookPrice();
+                    if (econManager.checkMoney(p) >= respirationPrice) {
                         ItemStack respiration = new ItemStack(Material.ENCHANTED_BOOK);
                         EnchantmentStorageMeta meta = (EnchantmentStorageMeta) respiration.getItemMeta();
                         meta.addStoredEnchant(Enchantment.RESPIRATION, 1, true);
                         respiration.setItemMeta(meta);
                         p.getInventory().addItem(respiration);
-                        econManager.removeMoney(p, 1300);
-                        p.sendMessage(ChatColor.GREEN + "Hai acquistato un Libro di Respirazione I per €1300!");
+                        econManager.removeMoney(p, respirationPrice);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato un Libro di Respirazione I per €" + String.format("%.0f", respirationPrice) + "!");
                         openLibri(p);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €1300");
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €" + String.format("%.0f", respirationPrice));
                     }
                     break;
 
-                case 19: // Punch I (NUOVO)
-                    if (econManager.checkMoney(p) >= 1500) {
+                case 19: // Punch I
+                    double punchPrice = plugin.getConfigManager().getPunchBookPrice();
+                    if (econManager.checkMoney(p) >= punchPrice) {
                         ItemStack punch = new ItemStack(Material.ENCHANTED_BOOK);
                         EnchantmentStorageMeta meta = (EnchantmentStorageMeta) punch.getItemMeta();
                         meta.addStoredEnchant(Enchantment.PUNCH, 1, true);
                         punch.setItemMeta(meta);
                         p.getInventory().addItem(punch);
-                        econManager.removeMoney(p, 1500);
-                        p.sendMessage(ChatColor.GREEN + "Hai acquistato un Libro di Spinta I per €1500!");
+                        econManager.removeMoney(p, punchPrice);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato un Libro di Spinta I per €" + String.format("%.0f", punchPrice) + "!");
                         openLibri(p);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €1500");
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €" + String.format("%.0f", punchPrice));
                     }
                     break;
 
-                case 20: // Flame I (NUOVO)
-                    if (econManager.checkMoney(p) >= 1800) {
+                case 20: // Flame I
+                    double flamePrice = plugin.getConfigManager().getFlameBookPrice();
+                    if (econManager.checkMoney(p) >= flamePrice) {
                         ItemStack flame = new ItemStack(Material.ENCHANTED_BOOK);
                         EnchantmentStorageMeta meta = (EnchantmentStorageMeta) flame.getItemMeta();
                         meta.addStoredEnchant(Enchantment.FLAME, 1, true);
                         flame.setItemMeta(meta);
                         p.getInventory().addItem(flame);
-                        econManager.removeMoney(p, 1800);
-                        p.sendMessage(ChatColor.GREEN + "Hai acquistato un Libro di Fiamma I per €1800!");
+                        econManager.removeMoney(p, flamePrice);
+                        p.sendMessage(ChatColor.GREEN + "Hai acquistato un Libro di Fiamma I per €" + String.format("%.0f", flamePrice) + "!");
                         openLibri(p);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €1800");
+                        p.sendMessage(ChatColor.RED + "Fondi insufficienti! Servono €" + String.format("%.0f", flamePrice));
                     }
                     break;
 
