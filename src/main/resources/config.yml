@@ -19,103 +19,103 @@ prices:
   # Sezione Generale
   generale:
     # Armi
-    diamond_sword: 1500.0
-    iron_sword: 800.0
-    diamond_axe: 1400.0
-    iron_axe: 700.0
-    crossbow: 900.0
-    trident: 2500.0
-    bow: 600.0
+    diamond_sword: 15000
+    iron_sword: 11000
+    diamond_axe: 9000
+    iron_axe: 8000
+    crossbow: 20000
+    trident: 100000
+    bow: 20000
 
     # Cibo
-    cooked_beef: 150.0
-    bread: 80.0
-    golden_apple: 1200.0
+    cooked_beef: 450.0
+    bread: 240.0
+    golden_apple: 3600.0
 
     # Munizioni
-    arrow: 300.0
-    spectral_arrow: 500.0
-    firework_rocket: 400.0
+    arrow: 150
+    spectral_arrow: 300
+    firework_rocket: 600
 
     # Oggetti preziosi
-    diamond: 2000.0
+    diamond: 2400
     experience_bottle: 600.0
 
   # Sezione Pozioni
   pozioni:
-    strength: 1400.0
-    speed: 1200.0
-    jump_boost: 1000.0
-    resistance: 1800.0
-    instant_health: 1600.0
-    fire_resistance: 1500.0
-    absorption: 1700.0
-    water_breathing: 1300.0
-    slow_falling: 1100.0
+    strength: 4200.0
+    speed: 3600.0
+    jump_boost: 3000.0
+    resistance: 5400.0
+    instant_health: 4800.0
+    fire_resistance: 4500.0
+    absorption: 5100.0
+    water_breathing: 3900.0
+    slow_falling: 3300.0
 
     # Pozioni Splash
-    splash_instant_health: 2000.0
-    splash_strength: 1800.0
-    splash_speed: 1600.0
+    splash_instant_health: 6000.0
+    splash_strength: 5400.0
+    splash_speed: 4800.0
 
     # Pozioni Negative
-    weakness: 800.0
-    splash_weakness: 1200.0
-    slowness: 900.0
-    splash_slowness: 1300.0
+    weakness: 2400.0
+    splash_weakness: 3600.0
+    slowness: 2700.0
+    splash_slowness: 3900.0
 
-  # Sezione Libri Incantati
-  libri:
-    protection: 1800.0
-    sharpness: 1500.0
-    unbreaking: 2200.0
-    power: 1600.0
-    sweeping_edge: 1700.0
-    aqua_affinity: 1400.0
-    respiration: 1300.0
-    punch: 1500.0
-    flame: 1800.0
+# Sezione Libri Incantati - CORRETTA INDENTAZIONE
+libri:
+  protection: 21600.0
+  sharpness: 18000.0
+  unbreaking: 26400.0
+  power: 19200.0
+  sweeping_edge: 20400.0
+  aqua_affinity: 16800.0
+  respiration: 15600.0
+  punch: 18000.0
+  flame: 21600.0
 
-  # Sezione Armature
-  armor:
-    # Ferro
-    iron_helmet: 800.0
-    iron_chestplate: 1200.0
-    iron_leggings: 1000.0
-    iron_boots: 600.0
-    iron_set: 3000.0
+# Sezione Armature
+armor:
+  iron:
+    iron_helmet: 9600.0
+    iron_chestplate: 14400.0
+    iron_leggings: 12000.0
+    iron_boots: 7200.0
+    iron_set: 36000.0
 
-    # Diamante
-    diamond_helmet: 2400.0
-    diamond_chestplate: 3600.0
-    diamond_leggings: 3000.0
-    diamond_boots: 1800.0
-    diamond_set: 9000.0
+  diamond:
+    diamond_helmet: 28800.0
+    diamond_chestplate: 43200.0
+    diamond_leggings: 36000.0
+    diamond_boots: 21600.0
+    diamond_set: 108000.0
 
-  # Sezione Ingredienti Pozioni
-  ingredienti:
-    # Ingredienti base
-    potion: 200.0
-    blaze_powder: 400.0
-    nether_wart: 500.0
+# Sezione Ingredienti Pozioni
+ingredienti:
+  # Ingredienti base
+  potion: 600.0
+  blaze_powder: 1200.0
+  nether_wart: 1500.0
 
-    # Ingredienti comuni
-    spider_eye: 350.0
-    fermented_spider_eye: 600.0
-    sugar: 250.0
-    glistering_melon_slice: 800.0
-    golden_carrot: 700.0
-    pufferfish: 650.0
-    magma_cream: 900.0
+  # Ingredienti comuni
+  spider_eye: 1050.0
+  fermented_spider_eye: 1800.0
+  sugar: 750.0
+  glistering_melon_slice: 2400.0
+  golden_carrot: 2100.0
+  pufferfish: 1950.0
+  magma_cream: 2700.0
 
-    # Ingredienti avanzati
-    ghast_tear: 1500.0
-    redstone: 300.0
-    gunpowder: 450.0
-    glowstone_dust: 550.0
-    ender_pearl: 1200.0
-    nautilus_shell: 1000.0
-    phantom_membrane: 800.0
+  # Ingredienti avanzati
+  ghast_tear: 4500.0
+  redstone: 900.0
+  gunpowder: 1350.0
+  glowstone_dust: 1650.0
+  ender_pearl: 3600.0
+  nautilus_shell: 3000.0
+  phantom_membrane: 2400.0
 
 # Configurazione Fix GUI
 FixGUI:
@@ -126,7 +126,7 @@ FixGUI:
   size: 27
 
   # Prezzo per riparare tutti gli oggetti
-  price: 1000.0
+  price: 5000
 
   # Configurazione incudine
   anvil:

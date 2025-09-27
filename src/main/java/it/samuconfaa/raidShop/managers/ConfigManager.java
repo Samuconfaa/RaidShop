@@ -90,52 +90,55 @@ public class ConfigManager {
     public double getSplashSlownessPotionPrice() { return config.getDouble("prices.pozioni.splash_slowness", 1300.0); }
 
     /*
-        PREZZI OGGETTI - SEZIONE LIBRI
+        PREZZI OGGETTI - SEZIONE LIBRI - CORRETTI SECONDO IL CONFIG REALE
     */
-    public double getProtectionBookPrice() { return config.getDouble("prices.libri.protection", 1800.0); }
-    public double getSharpnessBookPrice() { return config.getDouble("prices.libri.sharpness", 1500.0); }
-    public double getUnbreakingBookPrice() { return config.getDouble("prices.libri.unbreaking", 2200.0); }
-    public double getPowerBookPrice() { return config.getDouble("prices.libri.power", 1600.0); }
-    public double getSweepingEdgeBookPrice() { return config.getDouble("prices.libri.sweeping_edge", 1700.0); }
-    public double getAquaAffinityBookPrice() { return config.getDouble("prices.libri.aqua_affinity", 1400.0); }
-    public double getRespirationBookPrice() { return config.getDouble("prices.libri.respiration", 1300.0); }
-    public double getPunchBookPrice() { return config.getDouble("prices.libri.punch", 1500.0); }
-    public double getFlameBookPrice() { return config.getDouble("prices.libri.flame", 1800.0); }
+    public double getProtectionBookPrice() { return config.getDouble("libri.protection", 1800.0); }
+    public double getSharpnessBookPrice() { return config.getDouble("libri.sharpness", 1500.0); }
+    public double getUnbreakingBookPrice() { return config.getDouble("libri.unbreaking", 2200.0); }
+    public double getPowerBookPrice() { return config.getDouble("libri.power", 1600.0); }
+    public double getSweepingEdgeBookPrice() { return config.getDouble("libri.sweeping_edge", 1700.0); }
+    public double getAquaAffinityBookPrice() { return config.getDouble("libri.aqua_affinity", 1400.0); }
+    public double getRespirationBookPrice() { return config.getDouble("libri.respiration", 1300.0); }
+    public double getPunchBookPrice() { return config.getDouble("libri.punch", 1500.0); }
+    public double getFlameBookPrice() { return config.getDouble("libri.flame", 1800.0); }
 
     /*
-        PREZZI OGGETTI - SEZIONE ARMATURE
+        PREZZI OGGETTI - SEZIONE ARMATURE - CORRETTI SECONDO IL CONFIG REALE
     */
-    public double getIronHelmetPrice() { return config.getDouble("prices.armor.iron_helmet", 800.0); }
-    public double getIronChestplatePrice() { return config.getDouble("prices.armor.iron_chestplate", 1200.0); }
-    public double getIronLeggingsPrice() { return config.getDouble("prices.armor.iron_leggings", 1000.0); }
-    public double getIronBootsPrice() { return config.getDouble("prices.armor.iron_boots", 600.0); }
-    public double getIronSetPrice() { return config.getDouble("prices.armor.iron_set", 3000.0); }
-    public double getDiamondHelmetPrice() { return config.getDouble("prices.armor.diamond_helmet", 2400.0); }
-    public double getDiamondChestplatePrice() { return config.getDouble("prices.armor.diamond_chestplate", 3600.0); }
-    public double getDiamondLeggingsPrice() { return config.getDouble("prices.armor.diamond_leggings", 3000.0); }
-    public double getDiamondBootsPrice() { return config.getDouble("prices.armor.diamond_boots", 1800.0); }
-    public double getDiamondSetPrice() { return config.getDouble("prices.armor.diamond_set", 9000.0); }
+    // Armature di Ferro
+    public double getIronHelmetPrice() { return config.getDouble("armor.iron.iron_helmet", 800.0); }
+    public double getIronChestplatePrice() { return config.getDouble("armor.iron.iron_chestplate", 1200.0); }
+    public double getIronLeggingsPrice() { return config.getDouble("armor.iron.iron_leggings", 1000.0); }
+    public double getIronBootsPrice() { return config.getDouble("armor.iron.iron_boots", 600.0); }
+    public double getIronSetPrice() { return config.getDouble("armor.iron.iron_set", 3000.0); }
+
+    // Armature di Diamante
+    public double getDiamondHelmetPrice() { return config.getDouble("armor.diamond.diamond_helmet", 2400.0); }
+    public double getDiamondChestplatePrice() { return config.getDouble("armor.diamond.diamond_chestplate", 3600.0); }
+    public double getDiamondLeggingsPrice() { return config.getDouble("armor.diamond.diamond_leggings", 3000.0); }
+    public double getDiamondBootsPrice() { return config.getDouble("armor.diamond.diamond_boots", 1800.0); }
+    public double getDiamondSetPrice() { return config.getDouble("armor.diamond.diamond_set", 9000.0); }
 
     /*
-        PREZZI OGGETTI - SEZIONE INGREDIENTI
+        PREZZI OGGETTI - SEZIONE INGREDIENTI - CORRETTI SECONDO IL CONFIG REALE
     */
-    public double getPotionPrice() { return config.getDouble("prices.ingredienti.potion", 200.0); }
-    public double getBlazePowderPrice() { return config.getDouble("prices.ingredienti.blaze_powder", 400.0); }
-    public double getNetherWartPrice() { return config.getDouble("prices.ingredienti.nether_wart", 500.0); }
-    public double getSpiderEyePrice() { return config.getDouble("prices.ingredienti.spider_eye", 350.0); }
-    public double getFermentedSpiderEyePrice() { return config.getDouble("prices.ingredienti.fermented_spider_eye", 600.0); }
-    public double getSugarPrice() { return config.getDouble("prices.ingredienti.sugar", 250.0); }
-    public double getGlisteringMelonSlicePrice() { return config.getDouble("prices.ingredienti.glistering_melon_slice", 800.0); }
-    public double getGoldenCarrotPrice() { return config.getDouble("prices.ingredienti.golden_carrot", 700.0); }
-    public double getPufferfishPrice() { return config.getDouble("prices.ingredienti.pufferfish", 650.0); }
-    public double getMagmaCreamPrice() { return config.getDouble("prices.ingredienti.magma_cream", 900.0); }
-    public double getGhastTearPrice() { return config.getDouble("prices.ingredienti.ghast_tear", 1500.0); }
-    public double getRedstonePrice() { return config.getDouble("prices.ingredienti.redstone", 300.0); }
-    public double getGunpowderPrice() { return config.getDouble("prices.ingredienti.gunpowder", 450.0); }
-    public double getGlowstoneDustPrice() { return config.getDouble("prices.ingredienti.glowstone_dust", 550.0); }
-    public double getEnderPearlPrice() { return config.getDouble("prices.ingredienti.ender_pearl", 1200.0); }
-    public double getNautilusShellPrice() { return config.getDouble("prices.ingredienti.nautilus_shell", 1000.0); }
-    public double getPhantomMembranePrice() { return config.getDouble("prices.ingredienti.phantom_membrane", 800.0); }
+    public double getPotionPrice() { return config.getDouble("ingredienti.potion", 200.0); }
+    public double getBlazePowderPrice() { return config.getDouble("ingredienti.blaze_powder", 400.0); }
+    public double getNetherWartPrice() { return config.getDouble("ingredienti.nether_wart", 500.0); }
+    public double getSpiderEyePrice() { return config.getDouble("ingredienti.spider_eye", 350.0); }
+    public double getFermentedSpiderEyePrice() { return config.getDouble("ingredienti.fermented_spider_eye", 600.0); }
+    public double getSugarPrice() { return config.getDouble("ingredienti.sugar", 250.0); }
+    public double getGlisteringMelonSlicePrice() { return config.getDouble("ingredienti.glistering_melon_slice", 800.0); }
+    public double getGoldenCarrotPrice() { return config.getDouble("ingredienti.golden_carrot", 700.0); }
+    public double getPufferfishPrice() { return config.getDouble("ingredienti.pufferfish", 650.0); }
+    public double getMagmaCreamPrice() { return config.getDouble("ingredienti.magma_cream", 900.0); }
+    public double getGhastTearPrice() { return config.getDouble("ingredienti.ghast_tear", 1500.0); }
+    public double getRedstonePrice() { return config.getDouble("ingredienti.redstone", 300.0); }
+    public double getGunpowderPrice() { return config.getDouble("ingredienti.gunpowder", 450.0); }
+    public double getGlowstoneDustPrice() { return config.getDouble("ingredienti.glowstone_dust", 550.0); }
+    public double getEnderPearlPrice() { return config.getDouble("ingredienti.ender_pearl", 1200.0); }
+    public double getNautilusShellPrice() { return config.getDouble("ingredienti.nautilus_shell", 1000.0); }
+    public double getPhantomMembranePrice() { return config.getDouble("ingredienti.phantom_membrane", 800.0); }
 
     /*
         CONFIGURAZIONI FIX GUI

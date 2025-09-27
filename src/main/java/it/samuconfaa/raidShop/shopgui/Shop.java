@@ -38,7 +38,7 @@ public class Shop implements Listener {
         Inventory shop = Bukkit.createInventory(p, 54, plugin.getConfigManager().getShopName());
 
         // Decorazioni - Vetri colorati per i bordi
-        ItemStack border = new ItemStack(Material.YELLOW_STAINED_GLASS_PANE, 1, (short) 4); // Giallo
+        ItemStack border = new ItemStack(Material.YELLOW_STAINED_GLASS_PANE);
         ItemMeta borderMeta = border.getItemMeta();
         borderMeta.setDisplayName(" ");
         border.setItemMeta(borderMeta);
@@ -50,7 +50,7 @@ public class Shop implements Listener {
         }
 
         // Decorazioni laterali oro
-        ItemStack goldGlass = new ItemStack(Material.YELLOW_STAINED_GLASS_PANE, 1, (short) 1); // Arancione/oro
+        ItemStack goldGlass = new ItemStack(Material.YELLOW_STAINED_GLASS_PANE);
         ItemMeta goldMeta = goldGlass.getItemMeta();
         goldMeta.setDisplayName(" ");
         goldGlass.setItemMeta(goldMeta);
@@ -75,7 +75,7 @@ public class Shop implements Listener {
         shop.setItem(19, generale);
 
         // Sezione Pozioni
-        ItemStack pozioni = new ItemStack(Material.POTION, 1, (short) 8197);
+        ItemStack pozioni = new ItemStack(Material.POTION);
         ItemMeta metaPozioni = pozioni.getItemMeta();
         metaPozioni.setDisplayName(ChatColor.LIGHT_PURPLE + "" + ChatColor.BOLD + "SEZIONE POZIONI");
         metaPozioni.setLore(Arrays.asList(

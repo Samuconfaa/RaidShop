@@ -34,7 +34,7 @@ public class Armor implements Listener {
         Inventory armor = Bukkit.createInventory(p, 54, plugin.getConfigManager().getArmorName());
 
         // Decorazioni - Vetri colorati per i bordi
-        ItemStack border = new ItemStack(Material.ORANGE_STAINED_GLASS_PANE, 1, (short) 8);
+        ItemStack border = new ItemStack(Material.ORANGE_STAINED_GLASS_PANE);
         ItemMeta borderMeta = border.getItemMeta();
         borderMeta.setDisplayName(" ");
         border.setItemMeta(borderMeta);
@@ -46,7 +46,7 @@ public class Armor implements Listener {
         }
 
         // Decorazioni laterali arancioni
-        ItemStack orangeGlass = new ItemStack(Material.ORANGE_STAINED_GLASS_PANE, 1, (short) 1);
+        ItemStack orangeGlass = new ItemStack(Material.ORANGE_STAINED_GLASS_PANE);
         ItemMeta orangeMeta = orangeGlass.getItemMeta();
         orangeMeta.setDisplayName(" ");
         orangeGlass.setItemMeta(orangeMeta);

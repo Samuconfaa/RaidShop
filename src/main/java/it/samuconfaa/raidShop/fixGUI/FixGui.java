@@ -46,8 +46,7 @@ public class FixGui implements Listener {
         gui.setItem(plugin.getConfigManager().getFixAnvilPos(), anvil);
 
         // Vetri decorativi
-        ItemStack glass = new ItemStack(Material.LIGHT_BLUE_STAINED_GLASS_PANE, 1,
-                (short) plugin.getConfigManager().getFixGlassColor());
+        ItemStack glass = new ItemStack(Material.LIGHT_BLUE_STAINED_GLASS_PANE);
         ItemMeta glassMeta = glass.getItemMeta();
         glassMeta.setDisplayName(plugin.getConfigManager().getFixGlassName());
         glass.setItemMeta(glassMeta);

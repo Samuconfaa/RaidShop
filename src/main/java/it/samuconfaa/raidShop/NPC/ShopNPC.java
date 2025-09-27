@@ -51,4 +51,14 @@ public class ShopNPC implements Listener {
         UUID uuid = UUID.randomUUID();
         npc.data().set("player-skin", uuid.toString());
     }
+
+    @EventHandler
+    public void onNPCRightClick(NPCRightClickEvent e) {
+        Player player = e.getClicker();
+        if (player.hasPermission("raidshop.openshop")) {
+            shop.openShop(player);
+        } else {
+            player.sendMessage(plugin.getConfigManager().getNoPerm());
+        }
+    }
 }
